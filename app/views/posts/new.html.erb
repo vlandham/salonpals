@@ -1,0 +1,10 @@
+<%= simple_form_for @post do |f| %>
+  <% if @post.errors.any? %>
+    <% @post.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+  <% end %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<% end %>

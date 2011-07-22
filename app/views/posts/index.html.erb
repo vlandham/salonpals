@@ -1,0 +1,11 @@
+<h1>Job Postings</h1>
+
+<ul>
+<% @posts.each do |post| %>
+  <li><%= post.description %></li>
+<% end %>
+</ul>
+
+<br />
+
+<%= link_to 'New Post', new_post_path %>
