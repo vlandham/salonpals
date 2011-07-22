@@ -14,12 +14,24 @@
 <div id="wrapper">
   <div id="navigation-container">
     <div id="navigation">
-      <ul>
+      <ul class="left">
         <li><%= link_to "Find A Job", root_path %></li>
         <li><%= link_to "Post A Job", new_post_path %></li>
-      </ul>      
+      </ul>
+      <ul class="right">
+        <% if user_signed_in? %>
+          <li><%= link_to "Your Account", user_path(current_user) %></li>
+          <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>          
+        <% else %>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
+  <% flash.each do |key, msg| %>
+      <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+  <% end %>
   <div class="container">
     <div id="header">
       

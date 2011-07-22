@@ -2,8 +2,9 @@ Salonpals::Application.routes.draw do
   resources :posts
 
   resources :profiles
-
+  
   devise_for :users
+  resources :users
   
   root :to => "posts#index"
 

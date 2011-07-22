@@ -42,6 +42,11 @@
   padding-bottom: 7px;
 }
 
+.message {
+  text-align: center;
+  font-size: 1.3em;
+}
+
 .simple_form label {
   float: left;
   width: 100px;

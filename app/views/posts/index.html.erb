@@ -2,7 +2,7 @@
 
 <ul>
 <% @posts.each do |post| %>
-  <li><%= post.description %></li>
+  <li><%= link_to h(post.title), post_path(post) %></li>
 <% end %>
 </ul>
 
