@@ -10,13 +10,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110721041926) do
+ActiveRecord::Schema.define(:version => 20110722001535) do
+
+  create_table "posts", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "type"
+    t.string   "description"
+    t.string   "address_street"
+    t.string   "address_city"
+    t.string   "address_state"
+    t.integer  "address_zip"
+    t.date     "date_start"
+    t.date     "date_expire"
+    t.integer  "status"
+    t.text     "requirements"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "profiles", :force => true do |t|
-    t.integer  "user_id_id"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
@@ -32,6 +48,10 @@ ActiveRecord::Schema.define(:version => 20110721041926) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "language"
+    t.integer  "zip_code"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

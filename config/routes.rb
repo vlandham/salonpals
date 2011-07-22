@@ -1,9 +1,11 @@
 Salonpals::Application.routes.draw do
+  resources :posts
+
   resources :profiles
 
   devise_for :users
   
-  root :to => "profiles#index"
+  root :to => "posts#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
