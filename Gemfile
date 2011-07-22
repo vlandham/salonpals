@@ -14,6 +14,7 @@ gem 'jquery-rails', '>= 1.0.12'
 gem 'rails-i18n'
 gem 'carrierwave'
 gem 'workflow'
+gem 'gmaps4rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'
