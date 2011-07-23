@@ -1,5 +1,5 @@
 <h1><%=h @post.title %></h1>
 
-<p><%=h @post.description %></p>
+<div class="post-description"><%=h @post.description.html_safe %></div>
 
 <%= link_to "All Posts", posts_path %>

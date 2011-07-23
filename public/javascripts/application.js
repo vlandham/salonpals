@@ -6,4 +6,6 @@ jQuery(document).ready(function($) {
   if ($(".notice").length) {
     $(".notice").delay("2000").slideUp("slow")
   }
+  
+   $(".text").cleditor();
 });

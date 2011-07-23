@@ -6,7 +6,7 @@
       <tr>
         <td class="title">
           <h4><%= link_to h(post.title), post_path(post) %></h4>
-          <p class="business"><%=h  post.description %></p>
+          <p class="business"><%=h  post.description.html_safe %></p>
         </td>
         <td class="meta">
           <span class="when"><%=h post.created_at %></span>
