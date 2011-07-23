@@ -11,6 +11,12 @@
   <%= yield :head %>
 </head>
 <body>
+  <div id="language-selection">
+    <ul>
+      <li><%= link_to "English", "", :class => "nav-button" %></li>
+      <li><%= link_to "Vietnamese", "", :class => "nav-button" %></li>
+    </ul>
+  </div>
 <div id="wrapper">
   <div id="navigation-container">
     <div id="navigation">
@@ -19,6 +25,7 @@
         <li><%= link_to "Post A Job", new_post_path %></li>
       </ul>
       <ul class="right">
+        <li><%= link_to "Language", "#", :id => "language-button" %></li>
         <% if user_signed_in? %>
           <li><%= link_to "Your Account", user_path(current_user) %></li>
           <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>          
@@ -29,9 +36,11 @@
       </ul>
     </div>
   </div>
-  <% flash.each do |key, msg| %>
-      <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
-  <% end %>
+  <div id="notifications">
+    <% flash.each do |key, msg| %>
+        <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+    <% end %>
+  </div>
   <div class="container">
     <div id="header">
       
