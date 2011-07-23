@@ -3,7 +3,12 @@
   
   <div class="inputs">
     <%= f.input :title %>
-    <%= f.input :description, :form_class => "formatted-input" %>
+    <%= f.input :business_name %>
+    <%= f.input :address_street %>
+    <%= f.input :address_city %>
+    <%= f.input :address_state %>
+    <%= f.input :address_zip %>
+    <%= f.input :description, :input_html => { :class => 'formatted-text' } %>
   </div>
   
   <div class="actions">

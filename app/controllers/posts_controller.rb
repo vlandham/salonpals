@@ -30,12 +30,14 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @post = Post.find(params[:id])
+    @user = current_user    
+    @post = @user.posts.find(params[:id])
   end
 
   # POST /posts
   # POST /posts.xml
   def create
+    @user = current_user    
     @post = Post.new(params[:post])
 
     respond_to do |format|

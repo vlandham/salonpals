@@ -7,6 +7,7 @@ gem 'rails', '3.0.9'
 
 gem 'sqlite3'
 
+gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'simple_form'
 gem 'devise'
 gem 'cancan'
@@ -29,7 +30,6 @@ gem 'gmaps4rails'
 # Bundle the extra gems:
 # gem 'bj'
 # gem 'nokogiri'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
 # Bundle gems for the local environment. Make sure to
@@ -38,9 +38,10 @@ gem 'gmaps4rails'
  group :development, :test do
    gem 'rspec-rails'
  end
- 
+
  group :test do
   gem "factory_girl_rails"
   gem "capybara"
   gem "guard-rspec"
+  gem "growl"
  end

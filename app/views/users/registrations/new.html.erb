@@ -5,9 +5,11 @@
 
   <div class="inputs">
     <%= f.input :first_name, :autofocus => true  %>
+    <%= f.input :last_name %>
     <%= f.input :email %>
     <%= f.input :password %>
-    <%= f.input :password_confirmation %>
+    <%= f.input :password_confirmation, :label => "Retype Password", :required => true %>
+    <%= f.input :zip_code, :as => :string, :length => 8, :input_html => { :size => 8, :maxLength => 5 } %>
   </div>
 
   <div class="actions">
