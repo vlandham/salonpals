@@ -1,10 +1,20 @@
 <h1>Job Postings</h1>
 
-<ul>
-<% @posts.each do |post| %>
-  <li><%= link_to h(post.title), post_path(post) %></li>
-<% end %>
-</ul>
+<table class="postlist">
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td class="title">
+          <h4><%= link_to h(post.title), post_path(post) %></h4>
+          <p class="business"><%=h  post.description %></p>
+        </td>
+        <td class="meta">
+          <span class="when"><%=h post.created_at %></span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <br />
 
