@@ -16,6 +16,7 @@ gem 'rails-i18n'
 gem 'carrierwave'
 gem 'workflow'
 gem 'gmaps4rails'
+gem 'geocoder'
 
 # Use unicorn as the web server
 # gem 'unicorn'
