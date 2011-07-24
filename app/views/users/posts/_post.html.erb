@@ -1,0 +1,9 @@
+<tr>
+  <td class="title">
+    <h4><%= link_to h(post.title), post_path(post) %></h4>
+    <p class="business"><%=h post.business_name %></p>
+  </td>
+  <td class="meta">
+    <span class="when"><%=h post.created_at.to_s(:month_and_year) %></span>
+  </td>
+</tr>

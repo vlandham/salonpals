@@ -8,4 +8,5 @@ class Users::PostsController < ApplicationController
       format.xml  { render :xml => @posts }
     end
   end
+    
 end

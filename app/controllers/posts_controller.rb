@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
+  around_filter :catch_not_found, :only => [:edit, :create, :update]
+
   def index
-    @posts = Post.order("created_at DESC").all
+    @posts = Post.search_location(params[:location])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -9,6 +11,7 @@ class PostsController < ApplicationController
   end
   
   def show
+    @user = current_user
     @post = Post.find(params[:id])
 
     respond_to do |format|
@@ -30,7 +33,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @user = current_user    
+    @user = current_user
     @post = @user.posts.find(params[:id])
   end
 
@@ -54,7 +57,8 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.xml
   def update
-    @post = Post.find(params[:id])
+    @user = current_user
+    @post = @user.posts.find(params[:id])
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
@@ -67,5 +71,12 @@ class PostsController < ApplicationController
     end
   end
   
+  private
+
+  def catch_not_found
+    yield
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_url, :flash => { :error => "You do not own this post." }
+  end
   
 end

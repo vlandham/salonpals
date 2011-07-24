@@ -2,6 +2,8 @@
 
 <div class="post-description"><%=h @post.description.html_safe %></div>
 
-
-
 <%= link_to "All Posts", posts_path %>
+
+<% if @user.owns_post?(@post) %>
+  <%= link_to "Edit", edit_post_path(@post)  %>
+<% end %>

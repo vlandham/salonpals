@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_one :profile
-  has_many :posts
+  has_many :posts, :order => "created_at DESC"
   before_validation :convert_language
   
   validates_uniqueness_of :email
@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
   
   def owns_posts?
     !self.posts.empty?
+  end
+  
+  def owns_post? post
+    self.id == post.user_id
   end
 
   private
