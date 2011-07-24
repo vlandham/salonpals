@@ -22,5 +22,14 @@ Salonpals::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+  
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+      :login => "pro_1311280331_biz_api1.gmail.com",
+      :password => "1311280405",
+      :signature => "AKuG2bR.cZERqlTRkqSHEZVqJAuoA76RhOw4vDwSSWXr0udDxHMiPDLk"
+    )
+  end
 end
 

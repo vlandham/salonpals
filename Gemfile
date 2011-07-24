@@ -17,6 +17,7 @@ gem 'carrierwave'
 gem 'workflow'
 gem 'gmaps4rails'
 gem 'geocoder'
+gem 'activemerchant'
 
 # Use unicorn as the web server
 # gem 'unicorn'

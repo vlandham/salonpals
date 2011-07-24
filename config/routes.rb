@@ -1,4 +1,6 @@
 Salonpals::Application.routes.draw do
+  resources :orders
+
   scope "(:locale)", :locale => /en|vi/ do
     resources :profiles
   

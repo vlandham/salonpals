@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110724023147) do
+ActiveRecord::Schema.define(:version => 20110724161502) do
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20110724023147) do
     t.string   "business_name"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "workflow_state"
   end
 
   create_table "profiles", :force => true do |t|

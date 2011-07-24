@@ -46,4 +46,12 @@ Salonpals::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+      :login => "pro_1311280331_biz_api1.gmail.com",
+      :password => "1311280405",
+      :signature => "AKuG2bR.cZERqlTRkqSHEZVqJAuoA76RhOw4vDwSSWXr0udDxHMiPDLk"
+    )
 end

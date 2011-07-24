@@ -34,4 +34,8 @@ Salonpals::Application.configure do
   config.active_support.deprecation = :stderr
   config.action_mailer.default_url_options = { :host => "www.example.com" }
   
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    ::GATEWAY = ActiveMerchant::Billing::BogusGateway.new
+  end
 end
