@@ -18,6 +18,14 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :first_name, :last_name
   
+  def name
+    "#{self.first_name} #{self.last_name}"
+  end
+  
+  def owns_posts?
+    !self.posts.empty?
+  end
+
   private
   
   def convert_language

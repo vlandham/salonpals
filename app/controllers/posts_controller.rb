@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.order(:created_at).all
+    @posts = Post.order("created_at DESC").all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -37,8 +37,8 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.xml
   def create
-    @user = current_user    
-    @post = Post.new(params[:post])
+    @user = current_user
+    @post = @user.posts.build(params[:post])
 
     respond_to do |format|
       if @post.save

@@ -1,7 +1,11 @@
 Salonpals::Application.routes.draw do
-  resources :posts
-
   resources :profiles
+  
+  namespace :users, :as => :user do
+    resources :posts
+  end
+  
+  resources :posts
   
   devise_for :users
   resources :users

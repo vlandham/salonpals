@@ -12,9 +12,7 @@ jQuery(document).ready(function($) {
      height:       250,
      controls: 
       "bold italic underline | size style | " +
-      "color highlight removeformat | bullets numbering | outdent " +
-      "indent | alignleft center alignright justify | undo redo | " +
-      "rule | cut copy paste"
-     
+      "color highlight removeformat | bullets numbering rule | outdent " +
+      "indent | alignleft center alignright justify | undo redo | "
    });
 });

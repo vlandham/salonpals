@@ -144,30 +144,47 @@ table.postlist {
 }
 
 table.postlist tr td {
-padding: 8px 0;
-border-bottom: 1px solid #DDD;
+  padding: 8px 0;
+  border-bottom: 1px solid #DDD;
 }
 
 table.postlist .title h4 a {
-font-size: 14px;
-font-weight: bold;
-text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 table.postlist p.business {
-margin: 0;
-font-size: 12px;
+  margin: 0;
+  font-size: 12px;
 }
 
 table.postlist .meta {
-width: 1%;
-font-size: 12px;
-white-space: nowrap;
-padding-left: 30px;
+  width: 1%;
+  font-size: 12px;
+  white-space: nowrap;
+  padding-left: 30px;
 }
 
 table.postlist .meta span {
-display: block;
-text-align: right;
-color: #666;
+  display: block;
+  text-align: right;
+  color: #666;
+}
+
+.user-details {
+  line-height: 17px;
+  width: 300px;
+}
+
+.user-details td {
+  padding: 4px 0 4px 0;
+}
+
+.user-details td.detail-attribute {
+  width: 120px;
+}
+
+.user-details td.detail-value {
+  width: 230px;
 }

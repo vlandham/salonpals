@@ -1,7 +1,27 @@
 <h1><%=h  @user.first_name %>'s Account</h1>
 
+<table class="user-details">
+  <tr>
+    <td class="detail-attribute">Name</td>
+    <td class="detail-value"><%=h @user.name %></td>
+  </tr>
+  <tr>
+    <td class="detail-attribute">Email</td>
+    <td class="detail-value"><%=h @user.email %></td>
+  </tr>  
+  <tr>
+    <td class="detail-attribute">Zip Code</td>
+    <td class="detail-value"><%=h @user.zip_code %></td>    
+  </tr>
+  <tr>
+    <td class="detail-attribute">Member For</td>
+    <td class="detail-value"><%=h time_ago_in_words(@user.created_at) %></td>    
+  </tr>  
+</table>
 <%= link_to 'Edit Your Info', edit_user_path(@user) %>
 
-<br />
+<br /><br />
 
-<%= link_to 'Edit Your Password', edit_user_password_path(@user) %>
+<% if @user.owns_posts? %>
+  <%= link_to 'Manage Your Posts', user_posts_path() %>
+<% end %>
