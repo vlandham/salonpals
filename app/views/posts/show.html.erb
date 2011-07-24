@@ -2,6 +2,13 @@
 
 <div class="post-description"><%=h @post.description.html_safe %></div>
 
+<% if @post.latitude and @post.longitude %>
+  <br />
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@post.latitude}%2C#{@post.longitude}" %>
+  <br />
+  <br />
+<% end %>
+
 <%= link_to "All Posts", posts_path %>
 
 <% if @user.owns_post?(@post) %>
