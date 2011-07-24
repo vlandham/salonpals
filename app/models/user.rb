@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_one :profile
   has_many :posts, :order => "created_at DESC"
-  before_validation :convert_language
+  #before_validation :convert_language
   
   validates_uniqueness_of :email
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
@@ -34,7 +34,5 @@ class User < ActiveRecord::Base
   
   def convert_language
     self.language = self.language.to_i
-    puts self.inspect
-    puts LANGUAGES.values
   end
 end
