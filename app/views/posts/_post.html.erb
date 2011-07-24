@@ -2,8 +2,9 @@
   <td class="title">
     <h4><%= link_to h(post.title), post_path(post) %></h4>
     <p class="business"><%=h post.business_name %></p>
+    <p class="location"><%=h post.address_city%>, <%=h post.address_state %></p>
   </td>
   <td class="meta">
-    <span class="when"><%= l post.created_at :format => :short %></span>
+    <span class="when"><%= l post.created_at, :format => :day_month %></span>
   </td>
 </tr>
