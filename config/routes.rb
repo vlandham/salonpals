@@ -1,15 +1,18 @@
 Salonpals::Application.routes.draw do
-  resources :profiles
+  scope "(:locale)", :locale => /en|vi/ do
+    resources :profiles
   
-  namespace :users, :as => :user do
+    namespace :users, :as => :user do
+      resources :posts
+    end
+  
     resources :posts
+  
+    devise_for :users
+    resources :users
   end
   
-  resources :posts
-  
-  devise_for :users
-  resources :users
-  
+  match '/:locale' => "posts#index"
   root :to => "posts#index"
 
   # The priority is based upon order of creation:
