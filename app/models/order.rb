@@ -4,17 +4,33 @@ class Order < ActiveRecord::Base
   
   attr_accessor :card_number, :card_verification
   
+  validates_presence_of :first_name, :last_name, :address_street, :address_city, :address_state, :address_zip
   validate_on_create :validate_card
+  
+  def self.new_from_post_user post, user
+    order = Order.new
+    order.address_street = post.address_street
+    order.address_city = post.address_city
+    order.address_state = post.address_state
+    order.address_zip = post.address_zip
+    order.first_name = user.first_name
+    order.last_name = user.last_name
+    order
+  end
   
   def purchase
      response = GATEWAY.purchase(price_in_cents, credit_card, purchase_options)
      transactions.create!(:action => "purchase", :amount => price_in_cents, :response => response)
-     cart.update_attribute(:purchased_at, Time.now) if response.success?
+     post.activate! if response.success?
      response.success?
    end
 
    def price_in_cents
-     (cart.total_price*100).round
+     (post.price*100).round
+   end
+   
+   def name
+     "#{self.first_name} #{self.last_name}"
    end
   
   private
@@ -22,12 +38,12 @@ class Order < ActiveRecord::Base
       {
         :ip => ip_address,
         :billing_address => {
-          :name     => "Ryan Bates",
-          :address1 => "123 Main St.",
-          :city     => "New York",
-          :state    => "NY",
+          :name     => self.name,
+          :address1 => self.address_street,
+          :city     => self.address_city,
+          :state    => self.address_state,
           :country  => "US",
-          :zip      => "10001"
+          :zip      => self.address_zip
         }
       }
     end

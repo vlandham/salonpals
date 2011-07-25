@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_filter :authenticate_user!, :only => [:new, :edit, :create, :update]
   around_filter :catch_not_found, :only => [:edit, :create, :update]
 
   def index
@@ -45,7 +46,9 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
+        @post.submit!
+        @post.approve!
+        format.html { redirect_to(new_post_order_path(@post), :notice => 'Post was successfully created.') }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
         format.html { render :action => "new" }

@@ -10,7 +10,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110724161502) do
+ActiveRecord::Schema.define(:version => 20110725022912) do
+
+  create_table "order_transactions", :force => true do |t|
+    t.integer  "order_id"
+    t.string   "action"
+    t.integer  "amount"
+    t.boolean  "success"
+    t.string   "authorization"
+    t.string   "message"
+    t.text     "params"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", :force => true do |t|
+    t.integer  "post_id"
+    t.string   "ip_address"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "card_type"
+    t.date     "card_expires_on"
+    t.string   "address_street"
+    t.string   "address_city"
+    t.string   "address_state"
+    t.string   "address_zip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
@@ -31,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20110724161502) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "workflow_state"
+    t.boolean  "active"
   end
 
   create_table "profiles", :force => true do |t|

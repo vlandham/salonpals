@@ -7,6 +7,5 @@ class Users::PostsController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @posts }
     end
-  end
-    
+  end  
 end

@@ -1,0 +1,22 @@
+<h2>Please Enter Billing Information</h2>
+
+<%= simple_form_for [@post, @order] do |f| %>
+  <%= f.error_notification %>
+  
+  <div class="inputs">
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :card_type, :collection => [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]], :required => true %>
+    <%= f.input :card_number, :required => true %>
+    <%= f.input :card_verification, :required => true, :label => "CVV Value", :input_html => {:size => 4} %>
+    <%= f.input :card_expires_on, :required => true, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %>
+    <%= f.input :address_street %>
+    <%= f.input :address_city %>
+    <%= f.input :address_state %>
+    <%= f.input :address_zip, :input_html => {:size => 8} %>
+  </div>
+  
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

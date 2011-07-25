@@ -4,6 +4,17 @@ class Post < ActiveRecord::Base
   has_one :order
   validates_presence_of :title, :description, :address_street, :address_city, :address_state, :address_zip, :business_name
   
+  scope :active, where(:active => true).order("created_at DESC")
+  
+  def self.search_location location
+    if location and location.present?
+      active.near(location, 50, :order => :distance)
+    else
+      active.all
+    end
+  end
+  
+  
   geocoded_by :address
   after_validation :geocode,
     :if => lambda{ |obj| obj.address_changed? }
@@ -14,8 +25,37 @@ class Post < ActiveRecord::Base
     end
     
     state :preview do
+      event :approve, :transitions_to => :order
     end
     
+    state :order do
+      event :activate, :transitions_to => :active
+    end
+    
+    state :active do
+      event :expire, :transitions_to => :expired
+    end
+    
+    state :expired do
+    end
+  end
+  
+  def submit
+  end
+  
+  def approve
+  end
+  
+  def activate
+    self.active = true
+  end
+  
+  def expire
+    self.active = false
+  end
+  
+  def price
+    30.0
   end
   
   def address
@@ -27,11 +67,4 @@ class Post < ActiveRecord::Base
     address_state_changed? or address_zip_changed?
   end
   
-  def self.search_location location
-    if location and location.present?
-      near(location, 50, :order => :distance)
-    else
-      order("created_at DESC").all
-    end
-  end
 end
