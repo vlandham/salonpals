@@ -6,6 +6,8 @@ class Post < ActiveRecord::Base
   
   scope :active, where(:active => true).order("created_at DESC")
   
+  scope :inactive, where(:active => false).order("created_at DESC")
+  
   def self.search_location location
     if location and location.present?
       active.near(location, 50, :order => :distance)
@@ -13,7 +15,6 @@ class Post < ActiveRecord::Base
       active.all
     end
   end
-  
   
   geocoded_by :address
   after_validation :geocode,
@@ -48,6 +49,8 @@ class Post < ActiveRecord::Base
   
   def activate
     self.active = true
+    self.activated_at = Time.now
+    self.date_expire = Time.now + 30.days
   end
   
   def expire

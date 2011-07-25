@@ -1,7 +1,8 @@
 class Users::PostsController < ApplicationController
   def index
     @user = current_user
-    @posts = @user.posts
+    @active_posts = @user.posts.active
+    @inactive_posts = @user.posts.inactive
 
     respond_to do |format|
       format.html # index.html.erb

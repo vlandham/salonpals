@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110725022912) do
+ActiveRecord::Schema.define(:version => 20110725031233) do
 
   create_table "order_transactions", :force => true do |t|
     t.integer  "order_id"
@@ -45,10 +45,7 @@ ActiveRecord::Schema.define(:version => 20110725022912) do
     t.string   "address_street"
     t.string   "address_city"
     t.string   "address_state"
-    t.integer  "address_zip"
-    t.date     "date_start"
     t.date     "date_expire"
-    t.integer  "status"
     t.text     "requirements"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -58,7 +55,9 @@ ActiveRecord::Schema.define(:version => 20110725022912) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "workflow_state"
-    t.boolean  "active"
+    t.string   "address_zip"
+    t.boolean  "active",         :default => false
+    t.datetime "activated_at"
   end
 
   create_table "profiles", :force => true do |t|
@@ -84,7 +83,7 @@ ActiveRecord::Schema.define(:version => 20110725022912) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "language"
-    t.integer  "zip_code"
+    t.string   "zip_code"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

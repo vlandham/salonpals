@@ -1,3 +1,9 @@
 <h1><%=h @user.name %>'s Postings</h1>
 
-<%= render :partial => "posts", :locals => {:posts => @posts} %>
+<h2>Active Posts</h2>
+
+<%= render :partial => "posts", :locals => {:posts => @active_posts} %>
+
+<h2>Old Posts</h2>
+
+<%= render :partial => "posts", :locals => {:posts => @inactive_posts} %>
