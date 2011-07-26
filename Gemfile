@@ -46,4 +46,5 @@ gem 'activemerchant'
   gem "capybara"
   gem "guard-rspec"
   gem "growl"
+  gem 'spork', '~> 0.9.0.rc'
  end

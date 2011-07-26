@@ -15,6 +15,6 @@
 
 <%= link_to "All Posts", posts_path %>
 
-<% if @user.owns_post?(@post) %>
+<% if user_signed_in? and current_user.owns_post?(@post) %>
   <%= link_to "Edit", edit_post_path(@post)  %>
 <% end %>

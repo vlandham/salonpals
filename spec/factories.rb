@@ -6,3 +6,13 @@ Factory.define :user do |f|
   f.password "secret"
   f.language LANGUAGES[:en]
 end
+
+Factory.define :post do |f|
+  f.title "New Salon Job"
+  f.description "<h1>New Description</h1>"
+  f.address_street "12345 College Blvd"
+  f.address_city "Overland Park"
+  f.address_state "KS"
+  f.address_zip "66210"
+  f.business_name "Happy Salon"
+end

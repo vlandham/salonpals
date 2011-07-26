@@ -5,7 +5,7 @@ class Order < ActiveRecord::Base
   attr_accessor :card_number, :card_verification
   
   validates_presence_of :first_name, :last_name, :address_street, :address_city, :address_state, :address_zip
-  validate_on_create :validate_card
+  validate :validate_card, :on => :create
   
   def self.new_from_post_user post, user
     order = Order.new
