@@ -54,4 +54,5 @@ Salonpals::Application.configure do
       :password => "1311280405",
       :signature => "AKuG2bR.cZERqlTRkqSHEZVqJAuoA76RhOw4vDwSSWXr0udDxHMiPDLk"
     )
+  end
 end

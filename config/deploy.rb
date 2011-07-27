@@ -30,7 +30,7 @@ set :deploy_to, "/var/rails/#{application}"
 
 set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 #set :bundle, "bundle"
-set :unicorn_rails, "unicorn_rails"
+set :unicorn_rails, "bundle exec unicorn_rails"
 
 namespace :deploy do
 #  task :bundle_gems do
