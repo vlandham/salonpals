@@ -1,7 +1,8 @@
 class Post < ActiveRecord::Base
-  include Workflow
+  attr_writer :current_step
   belongs_to :user
   has_one :order
+  accepts_nested_attributes_for :order
   validates_presence_of :title, :description, :address_street, :address_city, :address_state, :address_zip, :business_name
   
   scope :active, where(:active => true).order("created_at DESC")
@@ -15,38 +16,43 @@ class Post < ActiveRecord::Base
       active.all
     end
   end
+
+  def current_step
+    @current_step || steps.first
+  end
+
+  def steps
+    %w[create preview order]
+  end
+
+  def next_step
+    self.current_step = steps[steps.index(current_step)+1]
+  end
+
+  def previous_step
+    self.current_step = steps[steps.index(current_step)-1]
+  end
+
+  def first_step?
+    current_step == steps.first
+  end
+
+  def last_step?
+    current_step == steps.last
+  end
+
+  def all_valid?
+    vld = steps.reverse.all? do |step|
+      self.current_step = step
+      valid?
+    end
+    vld &= self.order.valid?
+  end
   
   geocoded_by :address
   after_validation :geocode,
     :if => lambda{ |obj| obj.address_changed? }
     
-  workflow do
-    state :new do
-      event :submit, :transitions_to => :preview
-    end
-    
-    state :preview do
-      event :approve, :transitions_to => :order
-    end
-    
-    state :order do
-      event :activate, :transitions_to => :active
-    end
-    
-    state :active do
-      event :expire, :transitions_to => :expired
-    end
-    
-    state :expired do
-    end
-  end
-  
-  def submit
-  end
-  
-  def approve
-  end
-  
   def activate
     self.active = true
     self.activated_at = Time.now

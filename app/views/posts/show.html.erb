@@ -1,18 +1,4 @@
-<h1><%=h @post.title %></h1>
-
-<div class="post-description"><%=h @post.description.html_safe %></div>
-
-<% if @post.latitude and @post.longitude %>
-  <br />
-  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@post.latitude}%2C#{@post.longitude}" %>
-  <br />
-  <div id="post-address">
-    <p><%=h @post.address_street %></p>
-    <p><%=h @post.address_city %>, <%=h @post.address_state %> <%=h @post.address_zip %></p>
-  </div>
-  <br />
-<% end %>
-
+<%= render :partial => "posts/post_show", :locals => {:post => @post} %>
 <%= link_to "All Posts", posts_path %>
 
 <% if user_signed_in? and current_user.owns_post?(@post) %>

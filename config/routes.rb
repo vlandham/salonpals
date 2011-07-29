@@ -8,7 +8,11 @@ Salonpals::Application.routes.draw do
     end
   
     resources :posts do
-      resources :orders
+      #member do
+        #get 'preview'
+        #get 'order'
+      #end
+      #resources :orders
     end
   
     devise_for :users

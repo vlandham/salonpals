@@ -1,0 +1,8 @@
+<%= render :partial => "posts/post_show", :locals => {:post => @post} %>
+
+<%= form_for @post do |f| %>
+<div class="actions">
+  <p><%= f.submit "Order" %></p>
+  <p><%= f.submit "Edit", :name => "back_button"%></p>  
+</div>
+<% end %>

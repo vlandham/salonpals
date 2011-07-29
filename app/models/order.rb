@@ -5,17 +5,17 @@ class Order < ActiveRecord::Base
   attr_accessor :card_number, :card_verification
   
   validates_presence_of :first_name, :last_name, :address_street, :address_city, :address_state, :address_zip
-  validate :validate_card, :on => :create
+  validate :validate_card
   
-  def self.new_from_post_user post, user
-    order = Order.new
-    order.address_street = post.address_street
-    order.address_city = post.address_city
-    order.address_state = post.address_state
-    order.address_zip = post.address_zip
-    order.first_name = user.first_name
-    order.last_name = user.last_name
-    order
+  #before_validation :populate_fields
+  
+  def populate_fields
+    self.address_street = post.address_street
+    self.address_city = post.address_city
+    self.address_state = post.address_state
+    self.address_zip = post.address_zip
+    self.first_name = post.user.first_name
+    self.last_name = post.user.last_name
   end
   
   def purchase
