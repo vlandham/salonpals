@@ -160,7 +160,7 @@
   cursor: auto;
 }
 
-#search #type {
+#search #kind {
   float:left;
   font-size: 14px;
   height: 28px;
@@ -221,4 +221,43 @@ table.postlist .meta span {
 
 .user-details td.detail-value {
   width: 230px;
+}
+
+#post_about {
+  text-align: center;
+}
+
+#post_step {
+  text-align: center;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+#post_step ul {
+  list-style: none;
+  margin:auto;
+  text-align: center;
+}
+
+#post_step ul li {
+  float: left;
+  margin-left: 10px;
+}
+
+#post_step ul li a {
+  background: #0C2F33;
+  color: white;
+  text-decoration: none;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  display: block;
+  padding: 3px 16px;
+  margin-top: 8px;
+  font-weight: normal;
+  letter-spacing: -1px;
+}
+
+#post_step ul li a.active {
+  background: #e46a5a;
 }

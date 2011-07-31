@@ -2,12 +2,12 @@
   <%= f.error_notification %>
   
   <div class="inputs">
-    <%= f.input :type, :collection => post_types_view, :include_blank => false %>
+    <%= f.input :kind, :collection => post_kinds_view, :include_blank => false %>
     <%= f.input :title %>
     <%= f.input :business_name %>
     <%= f.input :address_street %>
     <%= f.input :address_city %>
-    <%= f.input :address_state %>
+    <%= f.input :address_state, :input_html => {:size => 2} %>
     <%= f.input :address_zip, :input_html => {:size => 10} %>
     <%= f.input :description, :input_html => { :class => 'formatted-text' } %>
   </div>

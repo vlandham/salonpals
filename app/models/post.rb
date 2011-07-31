@@ -4,21 +4,21 @@ class Post < ActiveRecord::Base
   has_one :order
   accepts_nested_attributes_for :order
   before_create :activate
-  validates_presence_of :title, :description, :address_street, :address_city, :address_state, :address_zip, :business_name, :type
+  validates_presence_of :title, :description, :address_street, :address_city, :address_state, :address_zip, :business_name, :kind
   
   scope :active, where(:active => true).order("created_at DESC")
   scope :inactive, where(:active => false).order("created_at DESC")
   
   def self.search params
-    type = types.include?(params[:type]) ? params[:type] : "job"
+    kind = kinds.include?(params[:kind]) ? params[:kind] : "job"
     if params[:location] and params[:location].present?
-      active.where(:type => type).near(params[:location], 50, :order => :distance)
+      active.where(:kind => kind).near(params[:location], 50, :order => :distance)
     else
-      active.where(:type => type).all
+      active.where(:kind => kind).all
     end
   end
   
-  def self.types
+  def self.kinds
     ["job", "booth", "shop"]
   end
   

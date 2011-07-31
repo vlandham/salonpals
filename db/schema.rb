@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110725031233) do
+ActiveRecord::Schema.define(:version => 20110731161304) do
 
   create_table "order_transactions", :force => true do |t|
     t.integer  "order_id"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(:version => 20110725031233) do
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
-    t.string   "type"
     t.string   "address_street"
     t.string   "address_city"
     t.string   "address_state"
@@ -58,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20110725031233) do
     t.string   "address_zip"
     t.boolean  "active",         :default => false
     t.datetime "activated_at"
+    t.string   "kind"
   end
 
   create_table "profiles", :force => true do |t|
