@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
   scope :inactive, where(:active => false).order("created_at DESC")
   
   def self.search params
-    type = types.include?(params[:post_type]) ? params[:type] : "job"
+    type = types.include?(params[:type]) ? params[:type] : "job"
     if params[:location] and params[:location].present?
       active.where(:type => type).near(params[:location], 50, :order => :distance)
     else

@@ -2,6 +2,9 @@
   <%= form_tag posts_path, :method => "get", :class => "posts" do %>
   <%= select_tag "type", options_for_select(post_types_search_view, params[:type]) %>
   <%= text_field_tag :location, params[:location] %>
-  <%= submit_tag "Search", :name => nil %>
+  <%= content_tag :button, :type => :submit, :class => :button do -%>
+  Search
+  <% end -%>
+
   <% end %>
 </div>

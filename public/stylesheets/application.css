@@ -136,6 +136,40 @@
   text-decoration: none;
 }
 
+#search {
+  
+}
+
+#search #location {
+  float:left;
+  font-size: 14px;
+  height: 28px;
+  width: 300px;
+  background-color: white;
+  padding: 3px 0 3px 8px;
+
+  margin: 8px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.15)!important;
+  border-top: 1px solid rgba(0, 0, 0, 0.25)!important;
+  border-radius: 1px;
+  -webkit-box-sizing: border-box;
+  -webkit-border-radius: 1px;
+  -webkit-transition: none;
+  -webkit-appearance: textfield;
+  -webkit-user-select: text;
+  cursor: auto;
+}
+
+#search #type {
+  float:left;
+  font-size: 14px;
+  height: 28px;
+  width: 150px;
+  padding: 3px 0 3px 8px;
+  margin: 8px 10px;
+}
+
+
 table.postlist {
   font-size: 14px;
   color: #999;
