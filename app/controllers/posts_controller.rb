@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   around_filter :catch_not_found, :only => [:edit, :create, :update]
 
   def index
-    @posts = Post.search_location(params[:location])
+    @posts = Post.search(params)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -47,7 +47,9 @@ class PostsController < ApplicationController
       @post.previous_step
       @post.order = nil
     elsif @post.last_step?
-      @post.save if @post.all_valid?
+      if @post.all_valid?
+        @post.save
+      end
     else
       @post.order = nil
       if @post.valid?
@@ -98,5 +100,6 @@ class PostsController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     redirect_to root_url, :flash => { :error => "You do not own this post." }
   end
+
   
 end

@@ -3,24 +3,29 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_one :order
   accepts_nested_attributes_for :order
-  validates_presence_of :title, :description, :address_street, :address_city, :address_state, :address_zip, :business_name
+  before_create :activate
+  validates_presence_of :title, :description, :address_street, :address_city, :address_state, :address_zip, :business_name, :type
   
   scope :active, where(:active => true).order("created_at DESC")
-  
   scope :inactive, where(:active => false).order("created_at DESC")
   
-  def self.search_location location
-    if location and location.present?
-      active.near(location, 50, :order => :distance)
+  def self.search params
+    type = types.include?(params[:post_type]) ? params[:type] : "job"
+    if params[:location] and params[:location].present?
+      active.where(:type => type).near(params[:location], 50, :order => :distance)
     else
-      active.all
+      active.where(:type => type).all
     end
   end
-
+  
+  def self.types
+    ["job", "booth", "shop"]
+  end
+  
   def current_step
     @current_step || steps.first
   end
-
+  
   def steps
     %w[create preview order]
   end
