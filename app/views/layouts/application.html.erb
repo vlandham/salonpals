@@ -21,7 +21,7 @@
   <div id="language-selection">
     <ul>
       <% LANGUAGES.each do |abbr, name|  -%>
-        <li><%= link_to t(name), root_path(:locale => abbr), :class => "nav-button" %></li>
+        <li><%= link_to t(name), locale_path(:id => abbr), :class => "nav-button" %></li>
       <% end -%>
     </ul>
   </div>

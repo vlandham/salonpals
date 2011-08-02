@@ -2,6 +2,7 @@ Salonpals::Application.routes.draw do
 
   scope "(:locale)", :locale => /en|vi/ do
     resources :profiles
+    resources :locales
   
     namespace :users, :as => :user do
       resources :posts
