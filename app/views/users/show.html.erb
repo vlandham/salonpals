@@ -16,7 +16,11 @@
   <tr>
     <td class="detail-attribute">Member For</td>
     <td class="detail-value"><%=h time_ago_in_words(@user.created_at) %></td>    
-  </tr>  
+  </tr>
+  <tr>
+    <td class="detail-attribute">Preferred Language</td>
+    <td class="detail-value"><%=h language_name_for(@user.language) %></td>    
+  </tr>    
 </table>
 <%= link_to 'Edit Your Info', edit_user_path(@user) %>
 

@@ -4,7 +4,7 @@ module PostsHelper
   end
   
   def post_kinds_search_view
-    {"Job Postings" => Post.kinds[0], "Booth Rentals" => Post.kinds[1], "Shops for Sale" => Post.kinds[2]}
+    {t(:job_posting_option) => Post.kinds[0], t(:both_rental_option) => Post.kinds[1], t(:shop_sale_option) => Post.kinds[2]}
   end
   
   def post_steps_view

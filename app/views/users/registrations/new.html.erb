@@ -10,6 +10,7 @@
     <%= f.input :password %>
     <%= f.input :password_confirmation, :label => "Retype Password", :required => true %>
     <%= f.input :zip_code, :input_html => { :size => 9, :maxLength => 9 } %>
+    <%= f.input :language, :label => "Your Preferred Language", :collection => LANGUAGES.invert, :include_blank => false %>
   </div>
 
   <div class="actions">

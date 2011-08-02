@@ -6,6 +6,7 @@
     <%=h f.input :last_name %>
     <%=h f.input :email %>
     <%=h f.input :zip_code, :input_html => {:size => 10} %>
+    <%= f.input :language, :label => "Your Preferred Language", :collection => LANGUAGES.invert, :include_blank => false %>
   </div>
 
   <div class="actions">

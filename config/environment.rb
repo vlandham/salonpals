@@ -1,7 +1,7 @@
 # Load the rails application
 require File.expand_path('../application', __FILE__)
 
-LANGUAGES = {:en => 1, :vi => 2}
+LANGUAGES = {"en" => "English", "vi" => "Vietnamese"}
 
 #APP_CONFIG = YAML::load(File.open("#{::Rails.root.to_s}/config/appconfig.yml"))
 APP_CONFIG = {}

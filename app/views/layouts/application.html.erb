@@ -20,23 +20,24 @@
 <body>
   <div id="language-selection">
     <ul>
-      <li><%= link_to "English", root_path(:locale => 'en'), :class => "nav-button" %></li>
-      <li><%= link_to "Vietnamese", root_path(:locale => 'vi'), :class => "nav-button" %></li>
+      <% LANGUAGES.each do |abbr, name|  -%>
+        <li><%= link_to t(name), root_path(:locale => abbr), :class => "nav-button" %></li>
+      <% end -%>
     </ul>
   </div>
 <div id="wrapper">
   <div id="navigation-container">
     <div id="navigation">
       <ul class="left">
-        <li><%= link_to "Find A Job", root_path %></li>
-        <li><%= link_to "Post A Job", new_post_path %></li>
-        <li><%= link_to "Profiles", profiles_path %></li>
+        <li><%= link_to t(:find_job_button), root_path %></li>
+        <li><%= link_to t(:post_job_button), new_post_path %></li>
+        <li><%= link_to t(:profiles_button), profiles_path %></li>
       </ul>
       <ul class="right">
-        <li><%= link_to "Language", "#", :id => "language-button" %></li>
+        <li><%= link_to t(:language_button), "#", :id => "language-button" %></li>
         <% if user_signed_in? %>
-          <li><%= link_to "Your Account", user_path(current_user) %></li>
-          <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>          
+          <li><%= link_to t(:account_button), user_path(current_user) %></li>
+          <li><%= link_to t(:sign_out_button), destroy_user_session_path, :method => :delete %></li>          
         <% else %>
           <li><%= link_to "Sign In", new_user_session_path %></li>
           <li><%= link_to "Sign Up", new_user_registration_path %></li>
