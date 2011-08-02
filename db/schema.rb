@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110731161304) do
+ActiveRecord::Schema.define(:version => 20110802020819) do
 
   create_table "order_transactions", :force => true do |t|
     t.integer  "order_id"
@@ -67,6 +67,19 @@ ActiveRecord::Schema.define(:version => 20110731161304) do
     t.text     "description"
   end
 
+  create_table "rails_admin_histories", :force => true do |t|
+    t.string   "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 5
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
@@ -82,8 +95,8 @@ ActiveRecord::Schema.define(:version => 20110731161304) do
     t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "language"
     t.string   "zip_code"
+    t.string   "language"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

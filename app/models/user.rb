@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   validates_presence_of  :first_name, :last_name
   #validates_numericality_of :zip_code, :only_integer => true
-  #validates_inclusion_of :language, :in => LANGUAGES.values
+  validates_inclusion_of :language, :in => LANGUAGES.keys
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :first_name, :last_name
+  attr_accessible :first_name, :last_name, :language, :zip_code
   
   def name
     "#{self.first_name} #{self.last_name}"
@@ -27,11 +27,5 @@ class User < ActiveRecord::Base
   
   def owns_post? post
     self.id == post.user_id
-  end
-
-  private
-  
-  def convert_language
-    self.language = self.language.to_i
   end
 end
