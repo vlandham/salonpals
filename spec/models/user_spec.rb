@@ -6,6 +6,7 @@ module UserSpecHelper
       :first_name => 'Jacky',
       :last_name => 'Boy',
       :password => 'abcdefg',
+      :language => 'en'
        }
   end
 end

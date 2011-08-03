@@ -9,7 +9,8 @@ module PostSpecHelper
       :address_city => "Overland Park",
       :address_state => "KS",
       :address_zip => "66210",
-      :business_name => "Happy Salon"
+      :business_name => "Happy Salon",
+      :kind => "job"
     }
   end
 end
@@ -77,35 +78,7 @@ describe Post do
       @post.valid?.should == true
     end
   end
-  
-  describe "workflow" do
-    let(:post) {Factory(:post)}
-    
-    it "should start as new" do
-      post.new?.should == true
-    end
-    
-    it "should go to preview once submitted" do
-      post.submit!
-      post.new?.should == false
-      post.preview?.should == true
-    end
-    
-    it "should go from preview to order" do
-      post.submit!
-      post.approve!
-      post.preview?.should == false
-      post.order?.should == true
-    end
-    
-    it "should be active if activated" do
-      post.submit!
-      post.approve!
-      post.activate!
-      post.active.should == true
-      post.active?.should == true
-    end
-  end
+
   
   describe "price" do
     let(:post) {Factory(:post)}

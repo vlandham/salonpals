@@ -4,7 +4,7 @@ Factory.define :user do |f|
   f.last_name "Dark"
   f.zip_code "64110"
   f.password "secret"
-  f.language LANGUAGES[:en]
+  f.language "en"
 end
 
 Factory.define :post do |f|
@@ -15,4 +15,5 @@ Factory.define :post do |f|
   f.address_state "KS"
   f.address_zip "66210"
   f.business_name "Happy Salon"
+  f.kind "post"
 end
