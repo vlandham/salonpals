@@ -1,8 +1,13 @@
 Salonpals::Application.routes.draw do
 
+  resources :positions
+
   scope "(:locale)", :locale => /en|vi/ do
-    resources :profiles
     resources :locales
+    
+    resources :profiles do
+    end
+    resources :positions
   
     namespace :users, :as => :user do
       resources :posts

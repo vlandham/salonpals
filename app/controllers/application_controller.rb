@@ -10,10 +10,16 @@ class ApplicationController < ActionController::Base
   private
   
   def set_locale
-    if current_user and !current_user.language.empty?
+    if current_user and !current_user.language?
       params[:locale] = current_user.language
     end
     I18n.locale = params[:locale] || I18n.default_locale
+  end
+  
+  def catch_not_found
+    yield
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_url, :flash => { :error => "You cannot view this page." }
   end
 
 end

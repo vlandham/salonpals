@@ -1,15 +1,20 @@
-<p id="notice"><%= notice %></p>
+<h1><%=h @profile.user.name  %></h1>
 
-<p>
-  <b>User:</b>
-  <%= @profile.user_id %>
-</p>
+<h2>Summary</h2>
+<p><%=h @profile.description %></p>
 
-<p>
-  <b>Description:</b>
-  <%= @profile.description %>
-</p>
+<h2>Experience</h2>
+
+<% @profile.positions.each do |position| %>
+<div class="position">
+  <h3><%=h position.title %></h3>
+  <p><%=h position.location %></p>
+  <%= link_to "Edit Position", edit_position_path(position) %>
+</div>
+<% end %>
+
+<%= link_to "Add Position", new_position_path() %>
 
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %>

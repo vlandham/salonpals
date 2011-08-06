@@ -1,0 +1,16 @@
+<%= simple_form_for position do |f| %>
+  <%= f.error_notification %>
+  
+  <div class="inputs">
+    <%= f.input :title %>
+    <%= f.input :company %>
+    <%= f.input :location %>
+    <%= f.input :description %>
+    <%= f.input :date_start, :required => true, :discard_day => true, :add_month_numbers => true %>
+    <%= f.input :date_end, :required => true, :discard_day => true, :add_month_numbers => true %>
+  </div>
+  
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

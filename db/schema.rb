@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110802020819) do
+ActiveRecord::Schema.define(:version => 20110806153227) do
 
   create_table "order_transactions", :force => true do |t|
     t.integer  "order_id"
@@ -37,6 +37,18 @@ ActiveRecord::Schema.define(:version => 20110802020819) do
     t.string   "address_zip"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "positions", :force => true do |t|
+    t.integer  "profile_id"
+    t.string   "title"
+    t.string   "location"
+    t.date     "date_start"
+    t.date     "date_end"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "company"
   end
 
   create_table "posts", :force => true do |t|
@@ -66,6 +78,19 @@ ActiveRecord::Schema.define(:version => 20110802020819) do
     t.integer  "user_id"
     t.text     "description"
   end
+
+  create_table "rails_admin_histories", :force => true do |t|
+    t.string   "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 5
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

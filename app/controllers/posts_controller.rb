@@ -92,14 +92,4 @@ class PostsController < ApplicationController
         end
       end
   end
-  
-  private
-
-  def catch_not_found
-    yield
-  rescue ActiveRecord::RecordNotFound
-    redirect_to root_url, :flash => { :error => "You do not own this post." }
-  end
-
-  
 end
