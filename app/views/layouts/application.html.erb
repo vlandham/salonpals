@@ -6,11 +6,13 @@
   <%= stylesheet_link_tag "blueprint/print.css", :media => "print" %>
   <!--[if lt IE 8]><%= stylesheet_link_tag "blueprint/ie.css" %><![endif]-->
   <%= stylesheet_link_tag "blueprint/plugins/buttons/screen.css" %>
-    
+  <link href='http://fonts.googleapis.com/css?family=Coustard' rel='stylesheet' type='text/css'>
+  
   <%= stylesheet_link_tag "scaffold" %>
   <%= stylesheet_link_tag "jquery.cleditor.css" %>
 
   <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag "mobile" if mobile_device? %>
 
   <%= javascript_include_tag :defaults %>
   <%= javascript_include_tag "jquery-qtip.min.js" %>
@@ -26,43 +28,49 @@
       <% end -%>
     </ul>
   </div>
-<div id="wrapper">
-  <div id="navigation-container">
-    <div id="navigation">
-      <ul class="left">
-        <li><%= link_to t(:find_job_button), root_path %></li>
-        <li><%= link_to t(:post_job_button), new_post_path %></li>
-        <li><%= link_to t(:profiles_button), profiles_path %></li>
-      </ul>
-      <ul class="right">
-        <li><%= link_to t(:language_button), "#", :id => "language-button" %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to t(:account_button), user_path(current_user) %></li>
-          <li><%= link_to t(:sign_out_button), destroy_user_session_path, :method => :delete %></li>          
-        <% else %>
-          <li><%= link_to "Sign In", new_user_session_path %></li>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-  <div id="notifications">
-    <% flash.each do |key, msg| %>
+  <div id="wrapper">
+      <div id="header">
+        <%= link_to image_tag("logo_long.png", :id => "logo"), root_path,  %>
+        <div id="navigation">
+          <ul class="left">
+            <li><%= link_to t(:find_job_button), root_path %></li>
+            <li><%= link_to t(:post_job_button), new_post_path %></li>
+            <li><%= link_to t(:profiles_button), profiles_path %></li>
+          </ul>
+          <ul class="right">
+            <li><%= link_to t(:language_button), "#", :id => "language-button" %></li>
+            <% if user_signed_in? %>
+            <li><%= link_to t(:account_button), user_path(current_user) %></li>
+            <li><%= link_to t(:sign_out_button), destroy_user_session_path, :method => :delete %></li>          
+            <% else %>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+       
+      <div id="notifications">
+        <% flash.each do |key, msg| %>
         <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
-    <% end %>
-  </div>
-  <div class="container">
-    <div id="header">
-      
-    </div>
-    <div id="content">
-      <%= yield %>
-    </div>
-  </div>
-  <div id="footer">
-    <%= yield :scripts %>
-  </div>
-</div>
+        <% end %>
+      </div>
+      <div id="main_area" class="clearfix">
+        <div id="content_area">
+          <div id="content">
+            <%= yield %>
+          </div>          
+        </div>
+      <div id="footer">
+        <%= yield :scripts %>
 
+        <% if mobile_device? %>
+        <%= link_to "Full Site", :mobile => 0 %>
+        <% else %>
+        <%= link_to "Mobile Site", :mobile => 1 %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
