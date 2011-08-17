@@ -1,1 +1,13 @@
-Mobile Version
+<%= content_for :title do -%>
+Posts
+<% end -%>
+
+<ul>
+  <% for post in @posts %>
+    <li class="arrow">
+      <%= link_to h(post.title), post_path(post) %>
+    </li>
+  <% end %>
+</ul>
+
+<ul><li class="arrow"><%= link_to "New Post", new_post_path %></li></ul>
