@@ -17,6 +17,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
+      format.mobile
       format.xml  { render :xml => @post }
     end
   end
