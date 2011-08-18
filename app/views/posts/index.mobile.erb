@@ -1,13 +1,10 @@
-<%= content_for :title do -%>
-Posts
-<% end -%>
+<% @title = "Job Postings" %>
 
-<ul>
+<%= form_tag posts_path, :method => "get", :class => "posts" do %>
+<% end %>
+
+<ul data-role="listview">
   <% for post in @posts %>
-    <li class="arrow">
-      <%= link_to h(post.title), post_path(post) %>
-    </li>
+      <li><%= link_to h(post.title), post_path(post) %></li>
   <% end %>
 </ul>
-
-<ul><li class="arrow"><%= link_to "New Post", new_post_path %></li></ul>

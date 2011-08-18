@@ -3,17 +3,28 @@
 <html>
   <head>
     <title><%= h(yield(:title) || "Untitled") %></title>
-    <%= stylesheet_link_tag "/jqtouch/jqtouch.css", "/jqtouch/themes/jqt/theme.css" %>
-    <%= javascript_include_tag "/jqtouch/jquery-1.4.2.min.js", "/jqtouch/jqtouch.js", "mobile" %>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.css" />
+    <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.js"></script>
+    <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
-  <body id="jqt">
-    <div class="current" id="home">
-      <div class="toolbar">
-        <%= link_to("Back", nil, :class => "back") unless current_page? root_path %>
-        <h1><%=h yield(:title) %></h1>
-        <%= link_to "Full Site", root_url(:mobile => 0), :class => "button", :rel => "external" %>
-        <%= yield(:toolbar) %>
+  <body>
+    <div data-role="page">
+      <div data-role="header" data-position="inline">
+        <h1><%= @title || "SalonPals" %></h1>
+         <% if user_signed_in? %>
+          <%= link_to t(:account_button), user_path(current_user) %>
+          <%= link_to t(:sign_out_button), destroy_user_session_path, :method => :delete %>       
+         <% else %>
+          <%= link_to "Sign In", new_user_session_path, :class => "ui-btn-right" %>
+         <% end %>
+       	<div data-role="navbar">
+       		<ul>
+       			<li><%= link_to t(:find_job_button), root_path %></li>
+       			<li><%= link_to "Profiles" %></li>
+       		</ul>
+       	</div><!-- /navbar -->
       </div>
      
       <% unless flash.empty? %>
@@ -25,6 +36,9 @@
       <% end %>
     
       <%= yield %>
+      <div data-role="footer">
+  
+      </div><!-- /footer -->
     </div>
   </body>
 </html>
