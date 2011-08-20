@@ -6,8 +6,9 @@
   <%= stylesheet_link_tag "blueprint/print.css", :media => "print" %>
   <!--[if lt IE 8]><%= stylesheet_link_tag "blueprint/ie.css" %><![endif]-->
   <%= stylesheet_link_tag "blueprint/plugins/buttons/screen.css" %>
-  <link href='http://fonts.googleapis.com/css?family=Coustard' rel='stylesheet' type='text/css'>
-  
+  <link href='http://fonts.googleapis.com/css?family=Days+One' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+ 
   <%= stylesheet_link_tag "scaffold" %>
   <%= stylesheet_link_tag "jquery.cleditor.css" %>
 
@@ -61,15 +62,21 @@
             <%= yield %>
           </div>          
         </div>
+        <div id="site_options">
+        <% if mobile_device? %>
+        <%= link_to "View Full Site", :mobile => 0 %>
+        <% else %>
+        <%= link_to "View Mobile Site", :mobile => 1 %>
+        <% end %>
+        </div>
       <div id="footer">
         <%= yield :scripts %>
-
+<!--
         <% if mobile_device? %>
         <%= link_to "Full Site", :mobile => 0 %>
         <% else %>
         <%= link_to "Mobile Site", :mobile => 1 %>
-        <% end %>
-      </div>
+        <% end %> -->
     </div>
   </div>
 </body>
