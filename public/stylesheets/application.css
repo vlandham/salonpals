@@ -3,15 +3,35 @@ body {
   background: url(../images/bg.png);
 }
 
+h1,h2 {
+  font-family:'Days One', Helvetica, sans-serif;
+  text-shadow:0px 1px 0px #fff;
+}
+
+a,ul,select,input,button,p {
+  font-family:"Valera", Helvetica, sans-serif;
+}
+
+.rounded-corner-box {
+  padding: 10px 10px 10px 10px;
+  background-color: #e9e9e9;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.1);	
+}
+
 #wrapper {
   width:100%;
   min-height:800px;
-  padding: 0;
+  padding:0;
 }
 
 #header {
   clear:both;
-  padding: 0 40px 0 40px;
+  padding:0 40px 0 40px;
   background:#fcad48;
   height:70px;
   border-bottom:1px solid #e87a27;
@@ -23,27 +43,26 @@ body {
 
 #header .tagline {
   font-size: 3em;
-  padding: 30px 0 0 0;
+  padding:30px 0 0 0;
   font-weight: bold;
 }
 
 #navigation {
-  margin:0;
+  margin: 0;
   padding: 10px 0 10px 0;
-  z-index: 10;
-  position: relative;
+  min-width: 1000px;
 }
 
-#navigation ul {
-  font-family:'Varela', Helvetica, sans-serif;
+#navigation ul{
+  font-weight:bold;
 }
 
-#navigation ul {
-  list-style: none;
+#navigation ul{
+  list-style:none;
   margin:0;
 }
 
-#navigation ul li {
+#navigation ul li{
   float: left;
   margin-left: 10px;
 }
@@ -88,20 +107,16 @@ body {
 }
 
 #content h1, h2 {
-  font-family:'Days One', Helvetica, sans-serif;
-  text-shadow:0px 1px 0px #fff;
   text-align: center;
+  color:#666764;
 }
 
 #content h1 {
   font-size:30pt;
-  font-weight:200;
-  color:#666764;
 }
 
 #content h2 {
   font-size:18pt;
-  color:#666764;
 }
 
 #notifications {
@@ -131,7 +146,6 @@ body {
 }
 
 #site_options a {
-  font-family:"Valera", Helvetica, sans-serif;
   font-size:13pt;
   font-weight:900;
   color:#fff;
@@ -233,16 +247,6 @@ body {
 }
 
 #search-container {
-  padding: 10px 10px 10px 10px;
-  color: black;
-  background-color:#E9E9E9;
-  -moz-border-radius:10px;
-  -webkit-border-radius:10px;
-  border-radius:10px;
-  position: relative;
-  -moz-box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.1);
-  box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 40px;
   height:200px;	
 }
@@ -258,7 +262,6 @@ body {
 
 #search #location {
   float:left;
-  font-family:"Valera", Helvetica, sans-serif;
   font-size: 18pt;
   font-weight:900;
   height: 50px;
@@ -287,7 +290,6 @@ body {
   padding: 0px 5px 3px 8px;
   margin: 14px 5px;  
   padding-left:2px;
-  font-family:"Valera", Helvetica, sans-serif;
   font-size:12pt;
   font-weight:600;
   display : block;
@@ -308,7 +310,6 @@ body {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  font-family:'Valera', Helvetica, sans-serif;
   font-size:20pt;
   color:#fff;
   text-shadow:0px 1px 0px #E87A27;
@@ -325,30 +326,20 @@ body {
   background: -moz-linear-gradient(top,  #fcdbab,  #FF9900);
 }
 
-#employer-box {
+#employer-box, #profile-box{
   float:left;
-  padding: 20px 20px 20px 20px;
-  color: black;
-  background-color:#E9E9E9;
-  -moz-border-radius:10px;
-  -webkit-border-radius:10px;
-  border-radius:10px;
-  position: relative;
-  -moz-box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.1);
-  box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.1);
-  width:380px; height:290px;		
+  padding:20px 20px 20px 20px;
+  width:380px;
+  height:290px;
 }
 
-#employer-box h1, #profiles-box h1 {
+#employer-box h1, #profile-box h1 {
   font-size:15pt;
-  font-weight:200;
-  color:#E87A27;
+  color:#e87a27;
   text-align:left;
 }
 
-#employer-box h2 p, #profiles-box h2 p{
-  font-family:"Valera", Helvetica, sans-serif;
+#employer-box h2 p, #profile-box h2 p{
   font-size:12pt;
   font-weight:500;
   color:#666764;
@@ -364,7 +355,6 @@ body {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  font-family:'Valera', Helvetica, sans-serif;
   font-size:15pt;
   color:#fff;
   text-shadow:0px 1px 0px #226fcb;
@@ -374,22 +364,11 @@ body {
   background: -moz-linear-gradient(top,  #00b4ff,  #0b486b);	
 }
 
-#profiles-box {
+#profile-box {
   float:right;
-  padding: 20px 20px 20px 20px;
-  color: black;
-  background-color:#e9e9e9;
-  -moz-border-radius:10px;
-  -webkit-border-radius:10px;
-  border-radius:10px;
-  position: relative;
-  -moz-box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.1);
-  box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.1);
-  width:380px; height:290px;
 }
 
-#profiles-box .create_profile {
+#profile-box .create_profile {
   float:left;
   margin:3px 43px;
   width:300px; height:48px;
@@ -398,7 +377,6 @@ body {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  font-family:'Valera', Helvetica, sans-serif;
   font-size:15pt;
   color:#fff;
   text-shadow:0px 1px 0px #0d8c01;
