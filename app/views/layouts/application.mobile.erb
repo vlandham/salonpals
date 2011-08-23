@@ -11,12 +11,12 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <div data-role="page">
+    <div data-role="page" data-add-back-btn="true">
       <div data-role="header" data-position="inline">
         <h1><%= @title || "SalonPals" %></h1>
          <% if user_signed_in? %>
-          <%= link_to t(:account_button), user_path(current_user) %>
-          <%= link_to t(:sign_out_button), destroy_user_session_path, :method => :delete %>       
+          
+          <%= link_to t(:sign_out_button), destroy_user_session_path, :method => :delete,  :class => "ui-btn-right" %>       
          <% else %>
           <%= link_to "Sign In", new_user_session_path, :class => "ui-btn-right" %>
          <% end %>
@@ -29,7 +29,7 @@
       </div>
      
       <% unless flash.empty? %>
-        <div class="info">
+        <div class="ui-body ui-body-e">
         <%- flash.each do |name, msg| -%>
           <%= content_tag :div, msg, :id => "flash_#{name}" %>
         <%- end -%>
@@ -38,8 +38,8 @@
     
       <%= yield %>
       <div data-role="footer">
-        <%= link_to "Full Site", {:mobile => 0}, {"data-ajax" => "false"} %>
-  
+        <%= link_to "Full Site", {:mobile => 0}, {"data-ajax" => "false", "data-role" => "button"} %>
+        <%= link_to t(:account_button), user_path(current_user), "data-role" => "button" %>
       </div><!-- /footer -->
     </div>
   </body>

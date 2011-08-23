@@ -1,17 +1,20 @@
-<%= @post.title %>
-
+<% @title = h(@post.title) %>
+<div data-role="collapsible">
+<h3>Description</h3>
 <div class="post-description"><%=h @post.description.html_safe %></div>
-
+</div>
 <% if @post.latitude and @post.longitude %>
 <div data-role="collapsible">
 	<h3>Map</h3>
 	<%= image_tag "http://maps.google.com/maps/api/staticmap?size=200x300&sensor=false&zoom=16&markers=#{@post.latitude}%2C#{@post.longitude}" %>
 	</div>
   
-  <br />
+  <div data-role="collapsible">
+  <h3>Address</h3>
+
   <div id="post-address">
     <p><%=h @post.address_street %></p>
     <p><%=h @post.address_city %>, <%=h @post.address_state %> <%=h @post.address_zip %></p>
   </div>
-  <br />
+  </div>
 <% end %>

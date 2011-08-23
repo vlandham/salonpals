@@ -1,0 +1,20 @@
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%=h f.input :first_name %>
+    <%=h f.input :last_name %>
+    <%=h f.input :email %>
+    <%=h f.input :zip_code, :input_html => {:size => 10} %>
+    <%= f.input :language, :label => "Your Preferred Language", :collection => LANGUAGES.invert, :include_blank => false, :as => :radio %>
+  </div>
+
+  <fieldset class="ui-grid-a">
+    <div class="ui-block-a">
+      <%= f.button :submit, "Update", "data-theme" => "b" %>
+    </div>
+    <div class="ui-block-b">
+      <%= link_to 'Cancel', user_path(current_user), "data-role" => "button" %>
+    </div>
+  </fieldset>
+<% end %>
