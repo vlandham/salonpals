@@ -145,62 +145,32 @@ h1, h2 {
     font-weight:900;
     color:#fff;
     text-decoration: none;
-    &:hover { color: #e87a27; }
+    &:hover {
+      text-decoration: underline;
+      color: #e87a27;
+    }
   }
 }
 
-#site_options a {
-  font-size:13pt;
-  font-weight:900;
-  color:#fff;
-  text-decoration: none;
-}
-
-#site_options a:hover {
-  color:#E87A27;
-}
-
 #footer {
-  padding: 10px 10px 10px 10px;
+  .standard-text-style;
+  padding: 20px;
   height:100px;
-}
+  color: #ddd;
+  text-align:center;
+  font-size: 11pt;
 
-#language-selection {
-  width: 150px;
-  height: 80px;
-  position: absolute;
-  top: 50px;
-  margin-left: 176px;
-  left: 50%;
-  display:none;
-  background: #C7E76C;
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  border-radius: 20px;
-}
+  a {
+    color: #ddd;
+    text-decoration: none;
+    &:hover {
+      color: #e87a27;
+    }  
+  }
 
-#language-selection ul {
-  list-style: none;
-  margin:0;
-}
-
-#language-selection ul li {
-  float: left;
-  margin-left: 10px;
-}
-
-#language-selection ul li a.nav-button {
-  background: #0C2F33;
-  color: white;
-  display: block;
-  padding: 3px 16px;
-  margin-top: 8px;
-  font-weight: normal;
-  letter-spacing: -1px;  
-  -moz-border-radius: 20px;
-  -webkit-border-raddius: 20px;
-  border-radius: 20px;
-  text-decoration: none;
+  #copyright {
+    padding: 10px;
+  }
 }
 
 #search-container {
@@ -448,3 +418,40 @@ table.postlist .meta span {
   background: #e46a5a;
 }
 
+//#language-selection {
+//  width: 150px;
+//  height: 80px;
+//  position: absolute;
+//  top: 50px;
+//  margin-left: 176px;
+//  left: 50%;
+//  display:none;
+//  background: #C7E76C;
+//  -moz-border-radius: 20px;
+//  -webkit-border-radius: 20px;
+//  border-radius: 20px;
+//}
+
+//#language-selection ul {
+//  list-style: none;
+//  margin:0;
+//}
+
+//#language-selection ul li {
+//  float: left;
+//  margin-left: 10px;
+//}
+
+//#language-selection ul li a.nav-button {
+//  background: #0C2F33;
+//  color: white;
+//  display: block;
+//  padding: 3px 16px;
+//  margin-top: 8px;
+//  font-weight: normal;
+//  letter-spacing: -1px;  
+//  -moz-border-radius: 20px;
+//  -webkit-border-raddius: 20px;
+//  border-radius: 20px;
+//  text-decoration: none;
+//}

@@ -77,8 +77,10 @@
         </div>
       <div id="footer">
         <%= yield :scripts %>
-        <div><a>About Salonpals</a>|<a>Terms of Use</a></div>
-        <div>2011 Saiga Labs. All rights reserved.</div>
+        <div><%= link_to "About", "#", :id => "about" %>
+        | <%= link_to "Terms of Use", "#", :id => "termsofuse" %>
+        | <%= link_to "Privacy Policies", "#", :id => "privacy"%></div>
+        <div id="copyright">Copyright © 2011 SalonPals. All Rights Reserved.</div>
 <!--
         <% if mobile_device? %>
         <%= link_to "Full Site", :mobile => 0 %>
