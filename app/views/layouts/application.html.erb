@@ -22,6 +22,7 @@
   <%= yield :head %>
 </head>
 <body>
+  <!--
   <div id="language-selection">
     <ul>
       <% LANGUAGES.each do |abbr, name|  -%>
@@ -29,6 +30,7 @@
       <% end -%>
     </ul>
   </div>
+  -->
   <div id="wrapper">
       <div id="header">
         <%= link_to image_tag("logo_long.png", :id => "logo"), root_path,  %>
@@ -39,7 +41,11 @@
             <li><%= link_to t(:profiles_button), profiles_path %></li>
           </ul>
           <ul class="right">
-            <li><%= link_to t(:language_button), "#", :id => "language-button" %></li>
+          	<% if root_path == "/?locale=en"%>
+            <li><%= link_to t(:language_button), "/?locale=vi", :id => "language-button" %></li>
+            <% else %>
+            <li><%= link_to t(:language_button), "/?locale=en", :id => "language-button" %></li>
+            <% end %>
             <% if user_signed_in? %>
             <li><%= link_to t(:account_button), user_path(current_user) %></li>
             <li><%= link_to t(:sign_out_button), destroy_user_session_path, :method => :delete %></li>          

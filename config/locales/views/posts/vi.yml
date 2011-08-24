@@ -1,9 +1,9 @@
 vi:
   post_index_header: "Việc làm Bài đăng"
-  find_job_button: "Tìm một công việc"
-  post_job_button: "Đăng việc làm"
+  find_job_button: "Tìm Việc Làm"
+  post_job_button: "Đăng Việc Làm"
   profiles_button: "người sử dụng"
-  language_button: "Ngôn ngữ"
+  language_button: "English"
   account_button: "Tài khoản của bạn"
   sign_out_button: "Đăng xuất"
   job_posting_option: "Việc làm Bài đăng"
