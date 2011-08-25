@@ -1,6 +1,8 @@
 class Post < ActiveRecord::Base
   attr_writer :current_step
   belongs_to :user
+  has_many :requirements
+  has_many :skills, :through => :requirements
   has_one :order
   accepts_nested_attributes_for :order
   before_create :activate

@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110806153227) do
+ActiveRecord::Schema.define(:version => 20110825021441) do
+
+  create_table "experiences", :force => true do |t|
+    t.integer  "skill_id"
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "order_transactions", :force => true do |t|
     t.integer  "order_id"
@@ -91,6 +98,33 @@ ActiveRecord::Schema.define(:version => 20110806153227) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "requirements", :force => true do |t|
+    t.integer  "skill_id"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "skill_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "skill_sets", :force => true do |t|
+    t.integer  "skill_id"
+    t.integer  "skill_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "skills", :force => true do |t|
+    t.string   "description_en"
+    t.string   "description_vi"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
