@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :user_types
+  has_many :roles, :through => :user_types
   has_one :profile
   has_many :posts, :order => "created_at DESC"
   #before_validation :convert_language
@@ -27,5 +29,10 @@ class User < ActiveRecord::Base
   
   def owns_post? post
     self.id == post.user_id
+  end
+  
+  def admin?
+    roles = self.roles
+    roles.select {|r| r.name == 'admin'}.size > 0
   end
 end
