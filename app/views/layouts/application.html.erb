@@ -64,17 +64,9 @@
       </div>
       <div id="main_area" class="clearfix">
         <div id="content_area">
-          <div id="content">
-            <%= yield %>
-          </div>          
+          <div id="content"><%= yield %></div>
         </div>
-        <div id="site_options">
-        <% if mobile_device? %>
-        <%= link_to "View Full Site", :mobile => 0 %>
-        <% else %>
-        <%= link_to "View Mobile Site", :mobile => 1 %>
-        <% end %>
-        </div>
+      </div>
       <div id="footer">
         <%= yield :scripts %>
         <div><%= link_to "About", "#", :id => "about" %>

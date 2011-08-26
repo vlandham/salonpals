@@ -8,9 +8,11 @@
  This is a generated file. DO NOT EDIT!!!
 */
 
+@import "theme-dark.less";
+
 // Main page styles
 body {
-  background:url(../images/bg.png);
+  background: @body-background;
 }
 
 .header-text-style {
@@ -21,13 +23,13 @@ body {
   font-family: 'Varela', Helvetica, sans-serif;
 }
 
-.box-shadow (@x: 0, @y: 0, @blur: 1px, @color: rgba(0, 0, 0, 0.1)) {
+.box-shadow (@x: 0, @y: 0, @blur: 1px, @color: @box-shadow-color) {
   box-shadow: @arguments;
   -moz-box-shadow: @arguments;
   -webkit-box-shadow: @arguments;
 }
 
-.rounded-corner (@radius: 10px, @padding:5px 5px, @bkgcolor: #e9e9e9) {
+.rounded-corner (@radius: 10px, @padding:5px 5px, @bkgcolor: @rounded-corner-background) {
   padding: @padding;
   background: @bkgcolor;
   -moz-border-radius: @radius;
@@ -35,7 +37,7 @@ body {
   border-radius: @radius;
 }
 
-.rounded-corner-with-shadow (@radius: 10px, @padding:5px 5px, @bkgcolor: #e9e9e9) {
+.rounded-corner-with-shadow (@radius: 10px, @padding:5px 5px, @bkgcolor: @rounded-corner-background) {
   .rounded-corner(@radius, @padding, @bkgcolor);
   .box-shadow(6px, 8px, 8px);
 }
@@ -60,8 +62,8 @@ body {
 
 h1, h2 {
   .header-text-style;
-  text-shadow: 0px 1px 0px #fff;
-  color:#666764;
+  text-shadow: 0px 1px 0px @text-shadow-color;
+  color: @text-color;
 }
 
 #wrapper {
@@ -73,9 +75,9 @@ h1, h2 {
 #header {
   clear: both;
   padding: 0 40px 0 40px;
-  background: #fcad48;
+  background: @header-background;
   height: 70px;
-  border-bottom: 1px solid #e87a27;
+  border-bottom: 1px solid @header-border-color;
 }
 
 #logo {
@@ -98,14 +100,14 @@ h1, h2 {
       margin-left: 10px;
 
       a {
-        .rounded-corner(12px, 4px 10px, #e87a27);
-        color:#fff;
+        .rounded-corner(12px, 4px 10px, @header-menu-background);
+        color: @header-menu-text-color;
         text-decoration: none;
         display: block;
         font-size:13pt;
         &:hover {
-          background: #d05f11;
-        }       
+          background: @header-menu-hover-background;
+        }
       }
     }
   }
@@ -119,13 +121,13 @@ h1, h2 {
 
 #content_area {
   padding:0;
-  height:620px;
+  height:700px;
 }
 
 #content {
   padding: 10px 20px 0 20px;
   text-align: center;
-  color:#666764;
+  color: @text-color;
 
   h1 {
     font-size: 30pt;
@@ -137,17 +139,18 @@ h1, h2 {
 }
 
 #site_options {
-  margin: 20px 0;
+  margin: 20px 20px;
   text-align:center;
-
+ 
   a {
+    padding: 20px 20px;
     font-size:13pt;
     font-weight:900;
-    color:#fff;
+    color:@site-option-text-color;
     text-decoration: none;
     &:hover {
       text-decoration: underline;
-      color: #e87a27;
+      color: @site-option-hover;
     }
   }
 }
@@ -156,15 +159,14 @@ h1, h2 {
   .standard-text-style;
   padding: 20px;
   height:100px;
-  color: #ddd;
   text-align:center;
   font-size: 11pt;
 
   a {
-    color: #ddd;
+    color: @footer-text-color;
     text-decoration: none;
     &:hover {
-      color: #e87a27;
+      color: @footer-text-hover-color;
     }  
   }
 
@@ -180,13 +182,13 @@ h1, h2 {
 }
 
 #search {
-  .rounded-corner(5px, 0px, #cacaca);
+  .rounded-corner(5px, 0px, @search-box-background);
   height:60px;
   margin: 0;
 
   #kind, #location, button {
     .standard-text-style;
-    color: #fff;
+    color: @search-box-text-color;
   }
   
   #kind {
@@ -200,9 +202,9 @@ h1, h2 {
     display: block;
     text-align: left;
     cursor: pointer;
-    border: 1px solid #e87a27;
-    background: #ff9900;
-    text-shadow: 0px 1px 0px #e87a27;
+    border: 1px solid @search-box-selection-border-color;
+    background: @search-box-selection-background;
+    text-shadow: 0px 1px 0px @search-box-text-shadow;
   }
 
   #location {
@@ -212,7 +214,7 @@ h1, h2 {
     font-weight: 900;
     height: 50px;
     width: 520px;
-    color: #cacaca;
+    color: @search-box-location-text-color;
     background: #fff;
     margin: 5px 0px;
     -webkit-box-sizing: border-box;
@@ -220,17 +222,16 @@ h1, h2 {
     -webkit-appearance: textfield;
     -webkit-user-select: text;
     cursor: auto;
-    border:1px solid #999;
+    border:1px solid @search-box-location-border-color;
   }
 
   button {
-    @bkgcolor: #ff9900;
-    .styled-button(148px, 48px, @bkgcolor, #e87a27);
+    .styled-button(148px, 48px, @search-box-button-background, @search-box-button-border-color);
     .header-text-style;
     float: right;
     margin:6px 6px;
     font-size:20pt;
-    text-shadow:0px 1px 0px #e87a27;
+    text-shadow:0px 1px 0px @search-box-text-shadow;
   }
 }
 
@@ -242,31 +243,31 @@ h1, h2 {
 
   h1 {
     font-size:15pt;
-    color: #e87a27;
+    color: @call-to-action-box-title-color;
     text-align: left;  
   }
 
   p {
     font-size:12pt;
-    color:#666764;
+    color: @call-to-action-box-text-color;
     text-align:left;  
   }
 
   #signup, #create_profile {
     float:left;
     font-size:15pt;
-    color:#fff;  
+    color: @call-to-action-button-text-color;
   }
 
   #signup {
-    .styled-button(300px, 48px, #0b486b, #226fcb);
-    text-shadow:0px 1px 0px #226fcb;
+    .styled-button(300px, 48px, @sign-up-button-background, @sign-up-button-border-color);
+    text-shadow:0px 1px 0px @sign-up-text-shadow-color;
     margin:0 43px 10px;
   }
 
   #create_profile {
-    .styled-button(300px, 48px, #1a8922, #0d8c01);
-    text-shadow:0px 1px 0px #0d8c01;
+    .styled-button(300px, 48px, @create-profile-button-background, @create-profile-button-border-color);
+    text-shadow:0px 1px 0px @create-profile-text-shadow-color;
     margin:17px 43px 10px;
   }
 }
