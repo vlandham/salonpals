@@ -22,7 +22,20 @@
   	   can also connecting with other fellow salon professionals once registered.</p>
   <%= content_tag :button, :type => :submit, :id => :create_profile do -%>Create Profile<% end -%>
 </div>
-  
+
+<!-- temporary -->
+<%if mobile_device? %>
+<%= link_to "View Full Site", :mobile => 0 %>
+<% end %>
+<!--
+<div id="site_options">
+  <% if mobile_device? %>
+  <%= link_to "View Full Site", :mobile => 0 %>
+  <% else %>
+  <%= link_to "View Mobile Site", :mobile => 1 %>
+  <% end %>
+</div>
+-->
 <!--
 <%= render :partial => "posts", :locals => {:posts => @posts} %>
 
