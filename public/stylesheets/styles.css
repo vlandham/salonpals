@@ -85,21 +85,6 @@ h1, h2 {
 #content h2 {
   font-size: 18pt;
 }
-#site_options {
-  margin: 20px 20px;
-  text-align: center;
-}
-#site_options a {
-  padding: 20px 20px;
-  font-size: 13pt;
-  font-weight: 900;
-  color: #ffffff;
-  text-decoration: none;
-}
-#site_options a:hover {
-  text-decoration: underline;
-  color: #e87a27;
-}
 #footer {
   font-family: 'Varela', Helvetica, sans-serif;
   padding: 20px;
@@ -284,29 +269,74 @@ h1, h2 {
 #profile-box {
   float: right;
 }
-.simple_form label {
+#signin-container {
+  padding: 10px;
+  background: url(../images/light_bg.jpg);
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  box-shadow: 4px 6px 6px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 4px 6px 6px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 4px 6px 6px rgba(0, 0, 0, 0.1);
+  margin: 70px 165px;
+  padding: 30px;
+  height: 250px;
+  width: 470px;
+}
+#signin-container h2 {
+  margin-bottom: 20px;
+}
+#signin-container label {
+  font-family: 'Varela', Helvetica, sans-serif;
+  font-size: 14pt;
   float: left;
-  width: 160px;
-  text-align: right;
-  margin: 2px 10px;
+  width: 100%;
+  text-align: left;
+  margin: 10px;
 }
-.simple_form .cleditorMain {
-  clear: both;
-  margin-left: 180px;
+#signin-container a {
+  font-size: 11pt;
+  color: #0b486b;
+  text-decoration: none;
 }
-.simple_form div.input {
-  margin-bottom: 10px;
+#signin-container a:hover {
+  color: #e87a27;
+  background: transparent;
 }
-.simple_form div.boolean, .simple_form input[type='submit'] {
-  margin-left: 180px;
+#signin-container input {
+  padding: 3px 0 3px 8px;
+  background: #ffffff;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  height: 35px;
+  font-size: 13pt;
+  cursor: auto;
 }
-.simple_form div.boolean label, .simple_form label.collection_radio {
-  float: none;
-  margin: 0;
+#signin-container #user_submit {
+  padding: 5px 5px;
+  background: #ff9900;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd699', endColorstr='#ff9900');
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd699', endColorstr='#ff9900');
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffd699), to(#ff9900));
+  background: -moz-linear-gradient(top, #ffd699,  #ff9900);
+  width: 140px;
+  height: 40px;
+  border: 1px solid #e87a27;
+  font-family: 'Days One', Helvetica, sans-serif;
+  margin: 15px 10px 10px 140px;
+  font-size: 18pt;
+  color: #fff;
+  text-shadow: 0px 1px 0px #e87a27;
 }
-.simple_form label.collection_radio {
-  margin-right: 10px;
-  margin-left: 2px;
+#signin-container #user_submit:hover {
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe0b3', endColorstr='#ff9900');
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe0b3', endColorstr='#ff9900');
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffe0b3), to(#ff9900));
+  background: -moz-linear-gradient(top, #ffe0b3,  #ff9900);
 }
 .simple_form .error {
   clear: left;
