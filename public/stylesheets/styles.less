@@ -39,7 +39,7 @@ body {
 
 .rounded-corner-with-shadow (@radius: 10px, @padding:5px 5px, @bkgcolor: @rounded-corner-background) {
   .rounded-corner(@radius, @padding, @bkgcolor);
-  .box-shadow(6px, 8px, 8px);
+  .box-shadow(4px, 6px, 6px);
 }
 
 .gradient-background (@startcolor, @endcolor) {
@@ -62,7 +62,7 @@ body {
 
 h1, h2 {
   .header-text-style;
-  text-shadow: 0px 1px 0px @text-shadow-color;
+  text-shadow: 0px 1px 1px @text-shadow-color;
   color: @text-color;
 }
 
@@ -73,11 +73,12 @@ h1, h2 {
 }
 
 #header {
+  .box-shadow(0px, 6px, 6px);
+  .gradient-background(lighten(@header-background, 10%), @header-background);
   clear: both;
   padding: 0 40px 0 40px;
-  background: @header-background;
   height: 70px;
-  border-bottom: 1px solid @header-border-color;
+  border-bottom: 2px solid @header-border-color;
 }
 
 #logo {
@@ -163,10 +164,13 @@ h1, h2 {
   font-size: 11pt;
 
   a {
+    .standard-text-style;
+    padding: 5px;
     color: @footer-text-color;
     text-decoration: none;
     &:hover {
       color: @footer-text-hover-color;
+      background: transparent;
     }  
   }
 
@@ -213,7 +217,7 @@ h1, h2 {
     font-size: 18pt;
     font-weight: 900;
     height: 50px;
-    width: 520px;
+    width: 516px;
     color: @search-box-location-text-color;
     background: #fff;
     margin: 5px 0px;

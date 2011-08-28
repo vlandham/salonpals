@@ -69,10 +69,11 @@
       </div>
       <div id="footer">
         <%= yield :scripts %>
-        <div><%= link_to "About", "#", :id => "about" %>
+        <div><%= link_to "About Us", "#", :id => "about" %>
         | <%= link_to "Terms of Use", "#", :id => "termsofuse" %>
-        | <%= link_to "Privacy Policies", "#", :id => "privacy"%></div>
-        <div id="copyright">Copyright © 2011 SalonPals. All Rights Reserved.</div>
+        | <%= link_to "Privacy Policies", "#", :id => "privacy"%>
+        | <%= link_to "Mobile Site", :mobile => 1 %></div>
+        <div id="copyright">Copyright © 2011 SaigaLabs LLC. All Rights Reserved.</div>
 <!--
         <% if mobile_device? %>
         <%= link_to "Full Site", :mobile => 0 %>
