@@ -63,9 +63,7 @@
         <% end %>
       </div>
       <div id="main_area" class="clearfix">
-        <div id="content_area">
-          <div id="content"><%= yield %></div>
-        </div>
+      	<%= yield %>
       </div>
       <div id="footer">
         <%= yield :scripts %>
@@ -75,12 +73,6 @@
         | <%= link_to "Mobile Site", :mobile => 1 %>
         | <%= link_to "Contact Us", "#", :id => "contact"%></div>
         <div id="copyright">Copyright © 2011 SaigaLabs LLC. All Rights Reserved.</div>
-<!--
-        <% if mobile_device? %>
-        <%= link_to "Full Site", :mobile => 0 %>
-        <% else %>
-        <%= link_to "Mobile Site", :mobile => 1 %>
-        <% end %> -->
     </div>
   </div>
 </body>

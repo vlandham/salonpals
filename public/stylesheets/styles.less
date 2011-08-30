@@ -42,6 +42,11 @@ body {
   .box-shadow(4px, 6px, 6px);
 }
 
+.rounded-corner-with-border (@radius: 10px, @padding:5px 5px, @bkgcolor: @rounded-corner-background, @border-color: @rounded-corner-border-color) {
+  .rounded-corner(@radius, @padding, @bkgcolor);
+  border: 1px solid @border-color
+}
+
 .gradient-background (@startcolor, @endcolor) {
   filter:~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{startcolor}', endColorstr='@{endcolor}')";
   -ms-filter:~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{startcolor}', endColorstr='@{endcolor}')";
@@ -68,7 +73,6 @@ h1, h2 {
 
 #wrapper {
   width:100%;
-  min-height:800px;
   padding:0;
 }
 
@@ -114,54 +118,12 @@ h1, h2 {
   }
 }
 
-#main_area {
-  padding-top: 20px;
-  width: 900px;
-  margin: 3px auto -35px auto;
-}
-
-#content_area {
-  padding:0;
-  height:700px;
-}
-
-#content {
-  padding: 10px 20px 0 20px;
-  text-align: center;
-  color: @text-color;
-
-  h1 {
-    font-size: 30pt;
-  }
-
-  h2 {
-    font-size: 18pt;
-  }
-}
-
-//#site_options {
-//  margin: 20px 20px;
-//  text-align:center;
-// 
-//  a {
-//    padding: 20px 20px;
-//    font-size:13pt;
-//    font-weight:900;
-//    color:@site-option-text-color;
-//    text-decoration: none;
-//    &:hover {
-//      text-decoration: underline;
-//      color: @site-option-hover;
-//    }
-//  }
-//}
-
 #footer {
   .standard-text-style;
   padding: 20px;
-  height:100px;
   text-align:center;
   font-size: 11pt;
+  color: @footer-text-color;
 
   a {
     .standard-text-style;
@@ -183,116 +145,131 @@ h1, h2 {
 //       Job Search Page                               //
 /////////////////////////////////////////////////////////
 
-#search-container {
-  .rounded-corner-with-shadow(10px, 10px);
-  margin-bottom: 40px;
-  height: 200px;
-}
+#post-main-content {
+  width: 900px;
+  height:700px;
+  padding: 30px 20px 0 20px;
+  margin: 3px auto -35px auto;
 
-#search {
-  .rounded-corner(5px, 0px, @search-box-background);
-  height:60px;
-  margin: 0;
+  #search-container {
+    .rounded-corner-with-shadow(10px, 10px);
+    text-align: center;
+    margin-bottom: 40px;
+    height: 200px;
+    
+    #search {
+      .rounded-corner(5px, 0px, @search-box-background);
+      height:60px;
+      margin: 0;
 
-  #kind, #location, button {
-    .standard-text-style;
-    color: @search-box-text-color;
+      #kind, #location, button {
+        .standard-text-style;
+        color: @search-box-text-color;
+      }
+
+      #kind {
+        float:left;
+        font-size: 12pt;
+        font-weight: bold;
+        height: 30px;
+        width: 180px;
+        padding: 0px 5px 3px 8px;
+        margin: 15px 5px;
+        display: block;
+        text-align: left;
+        cursor: pointer;
+        border: 1px solid @search-box-selection-border-color;
+        background: @search-box-selection-background;
+        text-shadow: 0px 1px 0px @search-box-text-shadow;
+      }
+
+      #location {
+        .rounded-corner(5px, 3px 0 3px 8px, #fff);
+        float: left;
+        font-size: 18pt;
+        font-weight: 900;
+        height: 50px;
+        width: 530px;
+        color: @search-box-location-text-color;
+        background: #fff;
+        margin: 5px 0px;
+        -webkit-box-sizing: border-box;
+        -webkit-transition: none;
+        -webkit-appearance: textfield;
+        -webkit-user-select: text;
+        cursor: auto;
+        border:1px solid @search-box-location-border-color;
+      }
+
+      button {
+        .styled-button(148px, 48px, @search-box-button-background, @search-box-button-border-color);
+        .header-text-style;
+        float: right;
+        margin:6px 6px;
+        font-size:20pt;
+        text-shadow:0px 1px 0px @search-box-text-shadow;
+      }
+    }
   }
-  
-  #kind {
-    float:left;
-    font-size: 12pt;
-    font-weight: bold;
-    height: 30px;
-    width: 150px;
-    padding: 0px 5px 3px 8px;
-    margin: 15px 5px;
-    display: block;
-    text-align: left;
-    cursor: pointer;
-    border: 1px solid @search-box-selection-border-color;
-    background: @search-box-selection-background;
-    text-shadow: 0px 1px 0px @search-box-text-shadow;
-  }
 
-  #location {
-    .rounded-corner(5px, 3px 0 3px 8px, #fff);
+  #employer-box, #profile-box {
+    .rounded-corner-with-shadow(10px, 20px);
     float: left;
-    font-size: 18pt;
-    font-weight: 900;
-    height: 50px;
-    width: 516px;
-    color: @search-box-location-text-color;
-    background: #fff;
-    margin: 5px 0px;
-    -webkit-box-sizing: border-box;
-    -webkit-transition: none;
-    -webkit-appearance: textfield;
-    -webkit-user-select: text;
-    cursor: auto;
-    border:1px solid @search-box-location-border-color;
+    width: 380px;
+    height: 300px;
+
+    h1 {
+      font-size:15pt;
+      color: @call-to-action-box-title-color;
+      text-align: left;  
+    }
+
+    p {
+      font-size:12pt;
+      color: @call-to-action-box-text-color;
+      text-align:left;  
+    }
+
+    #signup, #create_profile {
+      float:left;
+      font-size:15pt;
+      color: @call-to-action-button-text-color;
+    }
+
+    #signup {
+      .styled-button(300px, 48px, @signup-button-background, @signup-button-border-color);
+      text-shadow:0px 1px 0px @signup-text-shadow-color;
+      margin:0 43px 10px;
+    }
+
+    #create_profile {
+      .styled-button(300px, 48px, @create-profile-button-background, @create-profile-button-border-color);
+      text-shadow:0px 1px 0px @create-profile-text-shadow-color;
+      margin:17px 43px 10px;
+    }
   }
 
-  button {
-    .styled-button(148px, 48px, @search-box-button-background, @search-box-button-border-color);
-    .header-text-style;
-    float: right;
-    margin:6px 6px;
-    font-size:20pt;
-    text-shadow:0px 1px 0px @search-box-text-shadow;
+  #profile-box {
+    float:right;
   }
-}
-
-#employer-box, #profile-box {
-  .rounded-corner-with-shadow(10px, 20px);
-  float: left;
-  width: 380px;
-  height: 300px;
-
-  h1 {
-    font-size:15pt;
-    color: @call-to-action-box-title-color;
-    text-align: left;  
-  }
-
-  p {
-    font-size:12pt;
-    color: @call-to-action-box-text-color;
-    text-align:left;  
-  }
-
-  #signup, #create_profile {
-    float:left;
-    font-size:15pt;
-    color: @call-to-action-button-text-color;
-  }
-
-  #signup {
-    .styled-button(300px, 48px, @sign-up-button-background, @sign-up-button-border-color);
-    text-shadow:0px 1px 0px @sign-up-text-shadow-color;
-    margin:0 43px 10px;
-  }
-
-  #create_profile {
-    .styled-button(300px, 48px, @create-profile-button-background, @create-profile-button-border-color);
-    text-shadow:0px 1px 0px @create-profile-text-shadow-color;
-    margin:17px 43px 10px;
-  }
-}
-
-#profile-box {
-  float:right;
 }
 
 ///////////////////////////////////////////////////////////
 //             Sign In Page                              //
 ///////////////////////////////////////////////////////////
 
+#signin-body {
+  background: #fff;
+  height:500px;
+  padding: 10px 20px 0 0px;
+  margin: 0px auto 0px auto;
+}
+
 #signin-container {
-  .rounded-corner-with-shadow(10px, 10px);
+  .rounded-corner-with-border(10px, 10px);
   margin: 70px 165px;
   padding: 30px;
-  height: 250px;
+  height: 300px;
   width: 470px;
 
   h2 {
@@ -306,60 +283,35 @@ h1, h2 {
     width: 100%;
     text-align: left;
     margin: 10px; 
+    color: @text-color;
   }
   
   a {
     font-size: 11pt;
-    color: @sign-up-button-background;
+    color: @signin-button-background;
     text-decoration:none;
     &:hover {
-      color: @footer-text-hover-color;
+      color: @signin-link-hover-color;
       background: transparent;
     }
   }
 
   input {
-    .rounded-corner(5px, 3px 0 3px 8px, #fff);
+    .rounded-corner(5px, 3px 0 3px 8px, white);
     height: 35px;
     font-size: 13pt;
     cursor: auto;
   }
 
   #user_submit {
-    .styled-button(140px, 40px, @search-box-button-background, @search-box-button-border-color);
+    .styled-button(140px, 40px, @signin-button-background, @signin-button-border-color);
     .header-text-style;
     margin:15px 10px 10px 140px;
     font-size:18pt;
-    color: #fff;
-    text-shadow:0px 1px 0px @search-box-text-shadow;
+    color: white;
+    text-shadow:0px 1px 0px @signin-button-text-shadow-color;
   }
-
 }
-
-//.simple_form .cleditorMain {
-//  clear:both;
-//  margin-left: 180px;
-//}
-
-//.simple_form div.input {
-//  margin: 10px;
-//  padding: 0px;
-//  height: 55px;
-//}
-
-//.simple_form div.boolean, .simple_form input[type='submit'] {
-//  margin-left: 180px;
-//}
-
-//.simple_form div.boolean label, .simple_form label.collection_radio {
-//  float: none;
-//  margin: 0;
-//}
-
-//.simple_form label.collection_radio {
-//  margin-right: 10px;
-//  margin-left: 2px;
-//}
 
 .simple_form .error {
   clear: left;
