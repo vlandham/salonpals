@@ -1,0 +1,14 @@
+<h1>Skills</h1>
+
+<% @skill_categories.each do |skill_category| %>
+<h2><%= skill_category.name %></h2>
+<% skill_category.skills.each do |skill| %>
+<table>
+<tr><td><%= skill.description_en %></td><td><%= skill.description_vi %></td><td><%= link_to "Edit Skill", edit_admin_skill_path(skill) %></td></tr>
+</table>
+<% end %>
+<% end %>
+
+
+<%= link_to "New Skill", new_admin_skill_path %><br />
+<%= link_to "New Skill Category", new_admin_skill_category_path %>

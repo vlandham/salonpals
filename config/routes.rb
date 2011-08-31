@@ -23,8 +23,15 @@ Salonpals::Application.routes.draw do
   
     devise_for :users
     resources :users
+    
+    namespace :admin do
+      resources :dashboard
+      resources :skills
+      resources :skill_categories
+    end
   end
   
+  match '/admin' => "admin/dashboard#index"
   match '/:locale' => "posts#index"
   root :to => "posts#index"
 

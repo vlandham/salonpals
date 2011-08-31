@@ -1,0 +1,11 @@
+<%= simple_form_for ["admin", skill] do |f| %>
+  <div class="inputs">
+    <%= f.input :description_en %>
+    <%= f.input :description_vi %>
+    <%= f.association :skill_categories %>
+  </div>
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+
+<% end %>
