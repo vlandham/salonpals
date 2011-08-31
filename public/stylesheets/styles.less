@@ -118,6 +118,12 @@ h1, h2 {
   }
 }
 
+.content-body {
+  background: #fff;
+  padding: 30px 10px 30px 10px;
+  margin: 0px auto 0px auto;
+}
+
 #footer {
   .standard-text-style;
   padding: 20px;
@@ -258,18 +264,11 @@ h1, h2 {
 //             Sign In Page                              //
 ///////////////////////////////////////////////////////////
 
-#signin-body {
-  background: #fff;
-  height:500px;
-  padding: 10px 20px 0 0px;
-  margin: 0px auto 0px auto;
-}
-
 #signin-container {
   .rounded-corner-with-border(10px, 10px);
-  margin: 70px 165px;
-  padding: 30px;
-  height: 300px;
+  margin: 50px 165px 50px 50px;
+  padding: 30px 50px 50px 50px;
+  height: 250px;
   width: 470px;
 
   h2 {
@@ -330,7 +329,91 @@ h1, h2 {
   font-style: italic;
 }
 
+///////////////////////////////////////////////////////////
+//             Sign Up Page                              //
+///////////////////////////////////////////////////////////
 
+#signup-container {
+  .rounded-corner-with-border(10px, 10px);
+  margin: 25px 100px;
+  padding: 30px;
+  height: 640px;
+  width: 500px;
+
+  h2 {
+    .standard-text-style;
+    margin-bottom: 20px;  
+  }
+
+  label {
+    .standard-text-style;
+    font-size: 12pt;
+    float: left;
+    width: 100%;
+    text-align: left;
+    margin: 5px; 
+    color: @text-color;
+  }
+  
+  #zip_code_label {
+    padding-top: 25px;
+    width: 100px;
+  }
+
+  #language_label {
+    padding-top: 20px;
+    width: 250px;
+  }
+  
+  a {
+    font-size: 11pt;
+    color: @signin-button-background;
+    text-decoration:none;
+    &:hover {
+      color: @signin-link-hover-color;
+      background: transparent;
+    }
+  }
+
+  input {
+    .rounded-corner(5px, 3px 0 3px 8px, white);
+    height: 35px;
+    font-size: 13pt;
+    cursor: auto;
+  }
+
+  #user_zip_code {
+    float: left;
+    margin-top: 20px;
+    width: 350px;
+  }
+  
+  #user_language {
+    float: left;
+    font-size: 12pt;
+    font-weight: bold;
+    margin-top: 22px;
+    height: 30px
+    width: 190px;
+    color: white;
+    display: block;
+    text-align: left;
+    cursor: pointer;
+    border: 1px solid @search-box-selection-border-color;
+    background: @search-box-selection-background;
+    text-shadow: 0px 1px 0px @search-box-text-shadow;
+  }
+  
+  #user_submit {
+    .styled-button(140px, 40px, @signin-button-background, @signin-button-border-color);
+    .header-text-style;
+    float: clear;
+    margin:25px 10px 10px 10px;
+    font-size:18pt;
+    color: white;
+    text-shadow:0px 1px 0px @signin-button-text-shadow-color;
+  }
+}
 
 ///////////////////////////////////////////////////////////
 //   Other styles have not converted to LESS            //
