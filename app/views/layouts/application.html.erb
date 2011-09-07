@@ -22,15 +22,6 @@
   <%= yield :head %>
 </head>
 <body>
-  <!--
-  <div id="language-selection">
-    <ul>
-      <% LANGUAGES.each do |abbr, name|  -%>
-        <li><%= link_to t(name), locale_path(:id => abbr), :class => "nav-button" %></li>
-      <% end -%>
-    </ul>
-  </div>
-  -->
   <div id="wrapper">
       <div id="header">
         <%= link_to image_tag("logo_long.png", :id => "logo"), root_path,  %>
@@ -38,13 +29,19 @@
           <ul class="left">
             <li><%= link_to t(:find_job_button), root_path %></li>
             <li><%= link_to t(:post_job_button), new_post_path %></li>
-            <li><%= link_to t(:profiles_button), profiles_path %></li>
+            <% if user_signed_in? %>
+              <% if current_user.profile %>
+                <li><%= link_to t(:profiles_button), profile_path(current_user.profile) %></li>
+              <% else %>
+                <li><%= link_to t(:profiles_button), new_profile_path %></li>
+              <% end %>
+            <% end %>
           </ul>
           <ul class="right">
-          	<% if root_path == "/?locale=en"%>
-            <li><%= link_to t(:language_button), "/?locale=vi", :id => "language-button" %></li>
+          	<% if params["locale"] == "en"%>
+            <li><%= link_to t(:language_button), {"locale" => "vi"}, :id => "language-button" %></li>
             <% else %>
-            <li><%= link_to t(:language_button), "/?locale=en", :id => "language-button" %></li>
+            <li><%= link_to t(:language_button), {"locale" => "en"}, :id => "language-button" %></li>
             <% end %>
             <% if user_signed_in? %>
             <li><%= link_to t(:account_button), user_path(current_user) %></li>
