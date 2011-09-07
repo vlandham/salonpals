@@ -1,0 +1,11 @@
+<h2>Experience</h2>
+
+<% profile.positions.each do |position| %>
+<div class="position">
+  <h3><%=h position.title %></h3>
+  <p><%=h position.location %></p>
+  <%= link_to "Edit Position", edit_position_path(position) %>
+</div>
+<% end %>
+
+<%= link_to "Add Position", new_position_path() %>

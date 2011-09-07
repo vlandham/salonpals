@@ -1,11 +1,11 @@
 <%= simple_form_for(@profile) do |f| %>
   <%= f.error_notification %>
 
-  <div class="inputs">
-    <%= f.input :description %>
-  </div>
+  <h2>About Yourself</h2>
+  <%= f.input :description %>
 
   <div class="actions">
+    <%= link_to "Cancel", profile_path(@profile) %>
     <%= f.button :submit %>
   </div>
 <% end %>

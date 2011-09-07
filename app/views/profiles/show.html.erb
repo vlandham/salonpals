@@ -1,20 +1,13 @@
 <h1><%=h @profile.user.name  %></h1>
 
-<h2>Summary</h2>
+<h2>About</h2>
 <p><%=h @profile.description %></p>
-
-<h2>Experience</h2>
-
-<% @profile.positions.each do |position| %>
-<div class="position">
-  <h3><%=h position.title %></h3>
-  <p><%=h position.location %></p>
-  <%= link_to "Edit Position", edit_position_path(position) %>
-</div>
-<% end %>
-
-<%= link_to "Add Position", new_position_path() %>
-
-
-
 <%= link_to 'Edit', edit_profile_path(@profile) %>
+<br/><br/>
+<h2>Skills</h2>
+<br/><br/>
+<%= render :partial => 'experience', :locals => {:profile => @profile} %>
+
+
+
+
