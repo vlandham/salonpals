@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
   has_many :posts, :order => "created_at DESC"
   #before_validation :convert_language
   
+
+  validates_presence_of  :first_name, :last_name, :email, :password, :zip_code, :language
   validates_uniqueness_of :email
-  validates_presence_of  :first_name, :last_name
   #validates_numericality_of :zip_code, :only_integer => true
   validates_inclusion_of :language, :in => LANGUAGES.keys
   
