@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :roles, :through => :user_types
   has_one :profile
   has_many :posts, :order => "created_at DESC"
-  #before_validation :convert_language
+  before_create :add_profile
   
 
   validates_presence_of  :first_name, :last_name, :email, :password, :zip_code, :language
@@ -35,5 +35,10 @@ class User < ActiveRecord::Base
   def admin?
     roles = self.roles
     roles.select {|r| r.name == 'admin'}.size > 0
+  end
+  
+  private
+  def add_profile
+    self.profile = Profile.new
   end
 end
