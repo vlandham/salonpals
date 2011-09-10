@@ -1,16 +1,7 @@
-<div id="post_about">
-  <h2>How SalonPals Works</h2>
-  <p>Your new job will be posted for 30 days starting today.</p>
-</div>
-<div id="post_step" class="clearfix">
-  <ul>
-  <% @post.steps.each_with_index do |step,index| %>
-  <li>
-    <%= link_to post_steps_view[index], "", :class => @post.current_step == step ? "step_icon active" : "step_icon" %>
-  </li>
-  <% end %>
-  </ul>
-</div>
-<div id="post_step_content">
+<div class="content-body" align="center">
+  <h2>Create a posting</h2>
+  <p>Your new posting will be posted for 30 days starting today.</p>
+<div id="post_step_container" class="rounded-box-with-shadow">
   <%= render :partial => "#{@post.current_step}_step", :locals => {:post => @post} %>
+</div>
 </div>

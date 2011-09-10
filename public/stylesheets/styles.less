@@ -15,12 +15,82 @@ body {
   background: @body-background;
 }
 
-.header-text-style {
+h1, h2, h3 {
   font-family: 'Days One', Helvetica, sans-serif;
+  text-shadow: 0px 1px 1px @text-shadow-color;
+  color: @text-color;
 }
 
-.standard-text-style, p {
+h3 {
+  color: @h3-text-color;
+}
+
+p, a, input, ul, button, selection, label {
   font-family: 'Varela', Helvetica, sans-serif;
+  font-size:12pt;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    background:transparent;
+  }
+}
+
+button {
+   padding:5px 5px;
+   -moz-border-radius:5px;
+   -webkit-border-radius:5px;
+   border-radius:5px;
+   height:48px;
+   color:#fff;
+   font-size:15pt;
+}
+
+button:hover {
+  color:#fff;
+}
+
+.button-search {
+  .styled-button(@search-button-background, @search-button-border-color);
+  width:148px;
+  height:48px;
+  float: right;
+  margin:6px 6px;
+  font-size:20pt;
+  text-shadow:0px 1px 0px @search-button-text-shadow-color;
+}
+
+.button-action-1 {
+  .styled-button(@button-action-1-background, @button-action-1-border-color);
+  text-shadow:0px 1px 0px @button-action-1-text-shadow-color;
+  margin:0 43px 10px;
+}
+
+.button-action-2 {
+  .styled-button(@button-action-2-background, @button-action-2-border-color);
+  text-shadow:0px 1px 0px @button-action-2-text-shadow-color;
+  margin:17px 43px 10px;
+}
+
+input {
+  .rounded-corner(5px, 3px 0 3px 8px, @input-background);
+}
+
+select {
+  font-size: 12pt;
+  font-weight: bold;
+  padding: 0px 5px 3px 8px;
+  margin: 15px 5px;
+  text-align: left;
+  cursor: pointer;
+   float:left;
+  height: 30px;
+  width: 180px;
+  border: 1px solid @select-border-color;
+  background: @select-background;
+  color: @select-text-color;
+  text-shadow: 0px 1px 0px @select-text-shadow-color;
 }
 
 .box-shadow (@x: 0, @y: 0, @blur: 1px, @color: @box-shadow-color) {
@@ -37,11 +107,6 @@ body {
   border-radius: @radius;
 }
 
-.rounded-corner-with-shadow (@radius: 10px, @padding:5px 5px, @bkgcolor: @rounded-corner-background) {
-  .rounded-corner(@radius, @padding, @bkgcolor);
-  .box-shadow(4px, 6px, 6px);
-}
-
 .rounded-corner-with-border (@radius: 10px, @padding:5px 5px, @bkgcolor: @rounded-corner-background, @border-color: @rounded-corner-border-color) {
   .rounded-corner(@radius, @padding, @bkgcolor);
   border: 1px solid @border-color
@@ -54,21 +119,38 @@ body {
   background: ~"-moz-linear-gradient(top, @{startcolor},  @{endcolor})";
 }
 
-.styled-button(@width:100px, @height:50px, @bkgcolor:#fff, @bordercolor:#000) {
-  .rounded-corner(5px, 5px 5px, @bkgcolor);
+.styled-button(@bkgcolor:#fff, @bordercolor:#000) {
   .gradient-background(lighten(@bkgcolor, 30%), @bkgcolor);
-  width: @width;
-  height: @height;
   border: 1px solid @bordercolor;
   &:hover {
     .gradient-background(lighten(@bkgcolor, 35%), @bkgcolor);
+    border: 1px solid @bordercolor;
   }
 }
 
-h1, h2 {
-  .header-text-style;
-  text-shadow: 0px 1px 1px @text-shadow-color;
-  color: @text-color;
+.rounded-box-with-shadow {
+  .rounded-corner(10px, 10px, @rounded-corner-background);
+  .box-shadow(4px, 6px 6px);
+  color: @rounded-corner-text-color;
+}
+
+.inputs label {
+   font-size: 12pt;
+    float: left;
+    width: 100%;
+    text-align: left;
+    margin: 5px;
+    color: @text-color;
+}
+
+.inputs input {
+  height: 35px;
+  font-size: 13pt;
+  cursor: auto;
+}
+
+.content-body p {
+  color:#fff;
 }
 
 #wrapper {
@@ -88,17 +170,16 @@ h1, h2 {
 #logo {
   float: left;
 }
-  
+
 #navigation {
   margin: 0;
   padding: 10px 0 10px 0;
   min-width: 1000px;
 
   ul {
-    .standard-text-style;
-    font-weight:bold;
-    list-style:none;
-    margin:0;
+    font-weight: bold;
+    list-style: none;
+    margin: 0;
 
     li {
       float:left;
@@ -107,7 +188,6 @@ h1, h2 {
       a {
         .rounded-corner(12px, 4px 10px, @header-menu-background);
         color: @header-menu-text-color;
-        text-decoration: none;
         display: block;
         font-size:13pt;
         &:hover {
@@ -119,32 +199,32 @@ h1, h2 {
 }
 
 .content-body {
-  background: #fff;
   padding: 30px 10px 30px 10px;
   margin: 0px auto 0px auto;
+ 
+  h2 {
+    color: #fff;
+    text-shadow: 0px 1px 1px #000;
+  }
 }
 
 #footer {
-  .standard-text-style;
   padding: 20px;
   text-align:center;
   font-size: 11pt;
   color: @footer-text-color;
 
   a {
-    .standard-text-style;
     padding: 5px;
     color: @footer-text-color;
-    text-decoration: none;
     &:hover {
       color: @footer-text-hover-color;
-      background: transparent;
     }  
   }
+}
 
-  #copyright {
-    padding: 10px;
-  }
+#copyright {
+  padding: 10px;
 }
 
 /////////////////////////////////////////////////////////
@@ -156,108 +236,50 @@ h1, h2 {
   height:700px;
   padding: 30px 20px 0 20px;
   margin: 3px auto -35px auto;
+}
 
-  #search-container {
-    .rounded-corner-with-shadow(10px, 10px);
-    text-align: center;
-    margin-bottom: 40px;
-    height: 200px;
-    
-    #search {
-      .rounded-corner(5px, 0px, @search-box-background);
-      height:60px;
-      margin: 0;
+#search-container {
+  text-align: center;
+  margin-bottom: 40px;
+  height: 200px;
+}
 
-      #kind, #location, button {
-        .standard-text-style;
-        color: @search-box-text-color;
-      }
+#search {
+  .rounded-corner(5px, 0px, @search-box-background);
+  height:60px;
+  margin: 0;
+}
 
-      #kind {
-        float:left;
-        font-size: 12pt;
-        font-weight: bold;
-        height: 30px;
-        width: 180px;
-        padding: 0px 5px 3px 8px;
-        margin: 15px 5px;
-        display: block;
-        text-align: left;
-        cursor: pointer;
-        border: 1px solid @search-box-selection-border-color;
-        background: @search-box-selection-background;
-        text-shadow: 0px 1px 0px @search-box-text-shadow;
-      }
+#location {
+  float: left;
+  font-size: 18pt;
+  font-weight: 900;
+  height: 50px;
+  width: 530px;
+  color: @search-box-location-text-color;
+  background: #fff;
+  margin: 5px 0px;
+  -webkit-box-sizing: border-box;
+  -webkit-transition: none;
+  -webkit-appearance: textfield;
+  -webkit-user-select: text;
+  cursor: auto;
+  border:1px solid @search-box-location-border-color;
+}
 
-      #location {
-        .rounded-corner(5px, 3px 0 3px 8px, #fff);
-        float: left;
-        font-size: 18pt;
-        font-weight: 900;
-        height: 50px;
-        width: 530px;
-        color: @search-box-location-text-color;
-        background: #fff;
-        margin: 5px 0px;
-        -webkit-box-sizing: border-box;
-        -webkit-transition: none;
-        -webkit-appearance: textfield;
-        -webkit-user-select: text;
-        cursor: auto;
-        border:1px solid @search-box-location-border-color;
-      }
+#employer-box, #profile-box {
+  float:left;
+  width: 380px;
+  height: 320px;
+  padding: 20px;
 
-      button {
-        .styled-button(148px, 48px, @search-box-button-background, @search-box-button-border-color);
-        .header-text-style;
-        float: right;
-        margin:6px 6px;
-        font-size:20pt;
-        text-shadow:0px 1px 0px @search-box-text-shadow;
-      }
-    }
+  button {
+    width:300px;
   }
+}
 
-  #employer-box, #profile-box {
-    .rounded-corner-with-shadow(10px, 20px);
-    float: left;
-    width: 380px;
-    height: 300px;
-
-    h1 {
-      font-size:15pt;
-      color: @call-to-action-box-title-color;
-      text-align: left;  
-    }
-
-    p {
-      font-size:12pt;
-      color: @call-to-action-box-text-color;
-      text-align:left;  
-    }
-
-    #signup, #create_profile {
-      float:left;
-      font-size:15pt;
-      color: @call-to-action-button-text-color;
-    }
-
-    #signup {
-      .styled-button(300px, 48px, @signup-button-background, @signup-button-border-color);
-      text-shadow:0px 1px 0px @signup-text-shadow-color;
-      margin:0 43px 10px;
-    }
-
-    #create_profile {
-      .styled-button(300px, 48px, @create-profile-button-background, @create-profile-button-border-color);
-      text-shadow:0px 1px 0px @create-profile-text-shadow-color;
-      margin:17px 43px 10px;
-    }
-  }
-
-  #profile-box {
-    float:right;
-  }
+#profile-box {
+  float:right;
 }
 
 ///////////////////////////////////////////////////////////
@@ -265,50 +287,27 @@ h1, h2 {
 ///////////////////////////////////////////////////////////
 
 #signin-container {
-  .rounded-corner-with-border(10px, 10px);
   margin: 50px 165px 50px 50px;
-  padding: 30px 50px 50px 50px;
+  padding: 30px 30px 30px 30px;
   height: 250px;
-  width: 470px;
-
-  h2 {
-    margin-bottom: 20px;  
-  }
-
-  label {
-    .standard-text-style;
-    font-size: 14pt;
-    float: left;
-    width: 100%;
-    text-align: left;
-    margin: 10px; 
-    color: @text-color;
-  }
+  width: 450px;
   
   a {
-    font-size: 11pt;
-    color: @signin-button-background;
-    text-decoration:none;
+    font-size: 12pt;
+    color: @signin-link-color;
     &:hover {
       color: @signin-link-hover-color;
-      background: transparent;
     }
   }
 
-  input {
-    .rounded-corner(5px, 3px 0 3px 8px, white);
-    height: 35px;
-    font-size: 13pt;
-    cursor: auto;
+  button {
+    width:140px;
+    margin:15px 10px 10px 130px;
   }
 
-  #user_submit {
-    .styled-button(140px, 40px, @signin-button-background, @signin-button-border-color);
-    .header-text-style;
-    margin:15px 10px 10px 140px;
-    font-size:18pt;
-    color: white;
-    text-shadow:0px 1px 0px @signin-button-text-shadow-color;
+  .actions a {
+     float:left;
+     margin:30px 10px 10px 5px;
   }
 }
 
@@ -334,84 +333,62 @@ h1, h2 {
 ///////////////////////////////////////////////////////////
 
 #signup-container {
-  .rounded-corner-with-border(10px, 10px);
-  margin: 25px 100px;
+  margin: 20px 20px;
   padding: 30px;
-  height: 640px;
-  width: 500px;
+  height: 680px;
+  width: 430px;
 
   h2 {
-    .standard-text-style;
     margin-bottom: 20px;  
   }
 
-  label {
-    .standard-text-style;
-    font-size: 12pt;
-    float: left;
-    width: 100%;
-    text-align: left;
-    margin: 5px; 
-    color: @text-color;
+  button {
+    width:160px;
+    margin:25px 10px 10px 140px;
   }
-  
-  #zip_code_label {
-    padding-top: 25px;
-    width: 100px;
+ 
+  #user_zip_code {
+  	float: left;
+  	width: 120px;
   }
 
   #language_label {
-    padding-top: 20px;
-    width: 250px;
+    float:left;
+    width: 400px;
   }
-  
-  a {
-    font-size: 11pt;
-    color: @signin-button-background;
-    text-decoration:none;
-    &:hover {
-      color: @signin-link-hover-color;
-      background: transparent;
-    }
-  }
+}
 
+///////////////////////////////////////////////////////////
+//             Post Page                              //
+///////////////////////////////////////////////////////////
+
+#post_step_container {
+  margin: 20px 20px;
+  padding: 30px;
+  height: 980px;
+  width: 600px;
+  
   input {
-    .rounded-corner(5px, 3px 0 3px 8px, white);
-    height: 35px;
-    font-size: 13pt;
-    cursor: auto;
+    width:590px;
+  }
+  
+  #post_address_state {
+    float:left;
+    width:60px;
   }
 
-  #user_zip_code {
-    float: left;
-    margin-top: 20px;
-    width: 350px;
+  #post_address_zip {
+    float:left;
+    width:120px;
   }
-  
-  #user_language {
-    float: left;
-    font-size: 12pt;
-    font-weight: bold;
-    margin-top: 22px;
-    height: 30px
-    width: 190px;
-    color: white;
-    display: block;
-    text-align: left;
-    cursor: pointer;
-    border: 1px solid @search-box-selection-border-color;
-    background: @search-box-selection-background;
-    text-shadow: 0px 1px 0px @search-box-text-shadow;
+
+  #desc_label {
+    margin-bottom: 20px;
   }
-  
-  #user_submit {
-    .styled-button(140px, 40px, @signin-button-background, @signin-button-border-color);
-    .header-text-style;
-    float: clear;
-    margin:25px 10px 10px 10px;
-    font-size:18pt;
-    color: white;
-    text-shadow:0px 1px 0px @signin-button-text-shadow-color;
+
+  button {
+    width:180px;
+    margin:25px 10px 10px 210px;
   }
 }
 

@@ -2,17 +2,18 @@
   <%= f.error_notification %>
   
   <div class="inputs">
-    <%= f.input :kind, :collection => post_kinds_view, :include_blank => false %>
+    <%= f.input :kind, :collection => post_kinds_view, :include_blank => false, :label_html => { :id =>"post_type_label"} %>
     <%= f.input :title %>
     <%= f.input :business_name %>
     <%= f.input :address_street %>
     <%= f.input :address_city %>
-    <%= f.input :address_state, :input_html => {:size => 2} %>
-    <%= f.input :address_zip, :input_html => {:size => 10} %>
-    <%= f.input :description, :input_html => { :class => 'formatted-text' } %>
+    <%= f.input :address_state, :input_html => {:size => 2, :maxLength => 2} %>
+    <%= f.input :address_zip, :input_html => {:size => 10, :maxLength => 10 } %>
+    <%= f.input :description, :label_html => { :id =>"desc_label"}, :input_html => { :class => 'formatted-text' } %>
   </div>
   
   <div class="actions">
-    <%= f.button :submit %>
-  </div>
+  	<%= content_tag :button, :type => :submit, :class => "button-action-1" do -%>Create Post<% end -%>
+    <!-- <%= f.button :submit %> -->
+  </div>	
 <% end %>

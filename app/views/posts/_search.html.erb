@@ -1,7 +1,7 @@
 <div id="search" class="clearfix">
   <%= form_tag posts_path, :method => "get", :class => "posts" do %>
-  <%= select_tag "kind", options_for_select(post_kinds_search_view, params[:kind]) %>
+  <%= select_tag "kind", options_for_select(post_kinds_search_view, params[:kind]), :class => "dropdown" %>
   <%= text_field_tag :location, params[:location] || "City, State or Zip Code", :autocomplete => "off" %>
-  <%= content_tag :button, :type => :submit, :class => :button do -%>Search<% end -%>
+  <%= content_tag :button, :type => :submit, :class => "button-search" do -%>Search<% end -%>
   <% end %>
 </div>
