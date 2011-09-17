@@ -1,5 +1,6 @@
-<h1><%=h  @user.first_name %>'s Account</h1>
-
+<div class="content-body" align="center">
+<h2><%=h  @user.first_name %>'s account information</h2>
+<div class="rounded-box-with-shadow" id="account-summary">
 <table class="user-details">
   <tr>
     <td class="detail-attribute">Name</td>
@@ -22,10 +23,12 @@
     <td class="detail-value"><%=h language_name_for(@user.language) %></td>    
   </tr>    
 </table>
-<%= link_to 'Edit Your Info', edit_user_path(@user) %>
+<%= link_to 'Edit Account', edit_user_path(@user), :class => "button-link button-action-1" %>
 
 <br /><br />
 
 <% if @user.owns_posts? %>
   <%= link_to 'Manage Your Posts', user_posts_path() %>
 <% end %>
+</div>
+</div>

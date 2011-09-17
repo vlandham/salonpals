@@ -73,6 +73,17 @@ button:hover {
   margin:17px 43px 10px;
 }
 
+.button-link {
+   padding:5px 5px;
+   -moz-border-radius:5px;
+   -webkit-border-radius:5px;
+   border-radius:5px;
+   height:48px;
+   color:#fff;
+   font-size:15pt;
+   font-weight:bold;
+}
+
 input {
   .rounded-corner(5px, 3px 0 3px 8px, @input-background);
 }
@@ -148,7 +159,7 @@ select {
   font-size: 13pt;
   cursor: auto;
 }
-
+ 	
 .content-body p {
   color:#fff;
 }
@@ -359,7 +370,7 @@ select {
 }
 
 ///////////////////////////////////////////////////////////
-//             Post Page                              //
+//             Post Page                                 //
 ///////////////////////////////////////////////////////////
 
 #post_step_container {
@@ -391,6 +402,77 @@ select {
     margin:25px 10px 10px 210px;
   }
 }
+
+///////////////////////////////////////////////////////////
+//             Account Summary                           //
+///////////////////////////////////////////////////////////
+
+#account-summary {
+  margin: 20px 20px;
+  padding: 30px;
+  height: 300px;
+  width: 550px;
+}
+
+.user-details {
+  line-height: 17px;
+  width: 100%;
+}
+
+.user-details tr {
+  height: 50px;
+}
+
+.user-details td {
+  padding: 4px 0 4px 0;
+  font-size:18px;
+}
+
+.user-details td.detail-attribute {
+  width: 250px;
+  font-weight:bold;
+}
+
+///////////////////////////////////////////////////////////
+//             Edit Account                              //
+///////////////////////////////////////////////////////////
+
+#edit-account {
+  margin: 20px 20px;
+  padding: 30px;
+  height: 550px;
+  width: 550px;
+  
+  input {
+    width:530px;
+  }
+  
+  a {
+    float:left;
+    margin:42px 10px 10px 10px;
+    font-size: 16pt;
+    color: @signin-link-color;
+    &:hover {
+      color: @signin-link-hover-color;
+    }
+  }
+  
+  button {
+    float:left;
+    width:160px;
+    margin:25px 10px 10px 200px;
+  }
+
+  .error_notification {
+    color:red;
+  }
+ 
+  #user_zip_code {
+    float:left;
+    width:120px;
+  }
+}
+
 
 ///////////////////////////////////////////////////////////
 //   Other styles have not converted to LESS            //
@@ -431,23 +513,6 @@ table.postlist .meta span {
   display: block;
   text-align: right;
   color: #666;
-}
-
-.user-details {
-  line-height: 17px;
-  width: 300px;
-}
-
-.user-details td {
-  padding: 4px 0 4px 0;
-}
-
-.user-details td.detail-attribute {
-  width: 120px;
-}
-
-.user-details td.detail-value {
-  width: 230px;
 }
 
 #post_about {

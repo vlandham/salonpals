@@ -92,6 +92,16 @@ button:hover {
   background: -moz-linear-gradient(top, #71e47a,  #1a8922);
   border: 1px solid #0d8c01;
 }
+.button-link {
+  padding: 5px 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  height: 48px;
+  color: #fff;
+  font-size: 15pt;
+  font-weight: bold;
+}
 input {
   padding: 3px 0 3px 8px;
   background: white;
@@ -341,6 +351,57 @@ select {
   width: 180px;
   margin: 25px 10px 10px 210px;
 }
+#account-summary {
+  margin: 20px 20px;
+  padding: 30px;
+  height: 300px;
+  width: 550px;
+}
+.user-details {
+  line-height: 17px;
+  width: 100%;
+}
+.user-details tr {
+  height: 50px;
+}
+.user-details td {
+  padding: 4px 0 4px 0;
+  font-size: 18px;
+}
+.user-details td.detail-attribute {
+  width: 250px;
+  font-weight: bold;
+}
+#edit-account {
+  margin: 20px 20px;
+  padding: 30px;
+  height: 550px;
+  width: 550px;
+}
+#edit-account input {
+  width: 530px;
+}
+#edit-account a {
+  float: left;
+  margin: 42px 10px 10px 10px;
+  font-size: 16pt;
+  color: #0b486b;
+}
+#edit-account a:hover {
+  color: #e87a27;
+}
+#edit-account button {
+  float: left;
+  width: 160px;
+  margin: 25px 10px 10px 200px;
+}
+#edit-account .error_notification {
+  color: red;
+}
+#edit-account #user_zip_code {
+  float: left;
+  width: 120px;
+}
 table.postlist {
   font-size: 14px;
   color: #999;
@@ -370,19 +431,6 @@ table.postlist .meta span {
   display: block;
   text-align: right;
   color: #666;
-}
-.user-details {
-  line-height: 17px;
-  width: 300px;
-}
-.user-details td {
-  padding: 4px 0 4px 0;
-}
-.user-details td.detail-attribute {
-  width: 120px;
-}
-.user-details td.detail-value {
-  width: 230px;
 }
 #post_about {
   text-align: center;
