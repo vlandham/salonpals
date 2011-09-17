@@ -23,9 +23,9 @@
     <td class="detail-value"><%=h language_name_for(@user.language) %></td>    
   </tr>    
 </table>
-<%= link_to 'Edit Account', edit_user_path(@user), :class => "button-link button-action-1" %>
-
-<br /><br />
+<form method="link" action="<%=edit_user_path(@user)%>">
+  <%= content_tag :button, :type => :submit, :class => "button-action-1" do -%>Edit Account<% end -%>
+</form>
 
 <% if @user.owns_posts? %>
   <%= link_to 'Manage Your Posts', user_posts_path() %>

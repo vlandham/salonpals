@@ -12,7 +12,9 @@
   <p>Every month tens of thousands of salon professionals visit SalonPals to network and looking for new opportunities.
   	 For an afforable monthly fees, you can advertise your open positions, booth rentals, or salon for sale to these
   	 professionals and gain access to profiles of those have registered with us.</p>
-  <%= content_tag :button, :type => :submit, :class => "button-action-1" do -%>Signup or Create Post<% end -%>
+  <form method="link" action="<%=new_post_path%>">
+    <%= content_tag :button, :type => :submit, :class => "button-action-1" do -%>Create Post<% end -%>
+  </form>
 </div>
 
 <div class="rounded-box-with-shadow" id="profile-box">
@@ -21,7 +23,9 @@
   <p>Every month thousands of salon employers visit SalonPals to network and recruiting salon professionals for new opportunities.
   	   By registering and creating a profile with SalonPals, you can advertise your skill sets open positions to these employers. You
   	   can also connecting with other fellow salon professionals once registered.</p>
-  <%= content_tag :button, :type => :submit, :class => "button-action-2" do -%>Create Profile<% end -%>
+  <form method="link" action="<%=new_user_registration_path%>">
+    <%= content_tag :button, :type => :submit, :class => "button-action-2" do -%>Create Profile<% end -%>
+  </form>
 </div>
 </div>
 <!--

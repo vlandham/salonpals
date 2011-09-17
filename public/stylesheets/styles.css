@@ -92,16 +92,6 @@ button:hover {
   background: -moz-linear-gradient(top, #71e47a,  #1a8922);
   border: 1px solid #0d8c01;
 }
-.button-link {
-  padding: 5px 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  height: 48px;
-  color: #fff;
-  font-size: 15pt;
-  font-weight: bold;
-}
 input {
   padding: 3px 0 3px 8px;
   background: white;
@@ -354,8 +344,12 @@ select {
 #account-summary {
   margin: 20px 20px;
   padding: 30px;
-  height: 300px;
+  height: 310px;
   width: 550px;
+}
+#account-summary button {
+  width: 160px;
+  margin: 0px 10px 10px 200px;
 }
 .user-details {
   line-height: 17px;
