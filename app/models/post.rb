@@ -29,7 +29,9 @@ class Post < ActiveRecord::Base
   end
   
   def steps
-    %w[create preview order]
+    #Removing order for now. Free posts
+    #%w[create preview order]
+    %w[create preview]
   end
 
   def next_step
@@ -53,7 +55,8 @@ class Post < ActiveRecord::Base
       self.current_step = step
       valid?
     end
-    vld &= self.order.valid?
+    #Removing order for now. Free posts
+    #vld &= self.order.valid?
   end
   
   geocoded_by :address

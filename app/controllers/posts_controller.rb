@@ -40,6 +40,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.xml
   def create
+    #Removing order for now. Free posts
     @user = current_user
     session[:post_params].deep_merge!(params[:post]) if params[:post]
     @post = @user.posts.build(session[:post_params])
@@ -47,17 +48,17 @@ class PostsController < ApplicationController
     
     if params[:back_button]
       @post.previous_step
-      @post.order = nil
+      #@post.order = nil
     elsif @post.last_step?
       if @post.all_valid?
         @post.save
       end
     else
-      @post.order = nil
+      #@post.order = nil
       if @post.valid?
         @post.next_step
       end
-      @post.build_order
+      #@post.build_order
     end
 
     session[:post_step] = @post.current_step
