@@ -167,6 +167,11 @@ select {
   border-bottom: 2px solid @header-border-color;
 }
 
+#notifications {
+  text-align:center;
+  font-size:13pt;
+}
+
 #logo {
   float: left;
 }
@@ -290,7 +295,7 @@ select {
   margin: 50px 165px 50px 50px;
   padding: 30px 30px 30px 30px;
   height: 250px;
-  width: 450px;
+  width: 433px;
   
   a {
     font-size: 12pt;
@@ -333,7 +338,7 @@ select {
 ///////////////////////////////////////////////////////////
 
 #signup-container {
-  margin: 20px 20px;
+  margin: 50px 165px 50px 50px;
   padding: 30px;
   height: 680px;
   width: 430px;
@@ -363,8 +368,8 @@ select {
 ///////////////////////////////////////////////////////////
 
 #post_step_container {
-  margin: 20px 20px;
-  padding: 30px;
+  margin: 50px 165px 50px 50px;
+  padding: 30px 30px 30px 30px;
   height: 980px;
   width: 600px;
   
@@ -388,7 +393,17 @@ select {
 
   button {
     width:180px;
-    margin:25px 10px 10px 210px;
+    margin:25px 10px 10px 190px;
+  }
+  
+  a {
+    float:left;
+    margin:42px 10px 10px 10px;
+    font-size: 14pt;
+    color: @signin-link-color;
+    &:hover {
+      color: @signin-link-hover-color;
+    }
   }
 }
 
@@ -397,14 +412,18 @@ select {
 ///////////////////////////////////////////////////////////
 
 #account-summary {
-  margin: 20px 20px;
-  padding: 30px;
+  margin: 50px 165px 50px 50px;
+  padding: 30px 30px 30px 30px;
   height: 310px;
   width: 550px;
 
   button {
-    width:160px;
-    margin:0px 10px 10px 200px;
+    width:200px;
+    margin:0px 10px 10px 10px;
+  }
+
+  .button-action-1 {
+    margin:0px 10px 10px 70px;
   }
 }
 
@@ -432,8 +451,8 @@ select {
 ///////////////////////////////////////////////////////////
 
 #edit-account {
-  margin: 20px 20px;
-  padding: 30px;
+  margin: 50px 165px 50px 50px;
+  padding: 30px 30px 30px 30px;
   height: 550px;
   width: 550px;
   
@@ -450,7 +469,7 @@ select {
       color: @signin-link-hover-color;
     }
   }
-  
+  	
   button {
     float:left;
     width:160px;
@@ -467,6 +486,94 @@ select {
   }
 }
 
+///////////////////////////////////////////////////////////
+//             Reset password                            //
+///////////////////////////////////////////////////////////
+
+#reset-password-container {
+  margin: 50px 165px 50px 50px;
+  padding: 30px 30px 30px 30px;
+  height: 150px;
+  width: 433px;
+
+  button {
+    float:left;
+    width:160px;
+    margin:25px 10px 10px 115px;
+  }
+
+  a {
+    float:left;
+    margin:42px 10px 10px 10px;
+    font-size: 14pt;
+    color: @signin-link-color;
+    &:hover {
+      color: @signin-link-hover-color;
+    }
+  }
+}
+
+
+///////////////////////////////////////////////////////////
+//             Postings Summary                          //
+///////////////////////////////////////////////////////////
+
+#postings-summary-container {
+  margin: 50px 165px 50px 50px;
+  padding: 30px 30px 30px 30px;
+  width: 800px;
+
+
+  button {
+    float:left;
+    width:160px;
+    margin:25px 10px 10px 115px;
+  }
+
+  a {
+    font-size: 14pt;
+    color: @signin-link-color;
+    &:hover {
+      color: @signin-link-hover-color;
+    }
+  }
+  
+  p, .when {
+    color:@color-grey-dark;
+    font-size:12pt;
+  }
+}
+
+///////////////////////////////////////////////////////////
+//             Post Detail                               //
+///////////////////////////////////////////////////////////
+
+#post-detail-container {
+  margin: 50px 165px 50px 50px;
+  padding: 30px 30px 70px 30px;
+  width: 800px;
+  
+  p, .post-description {
+    color:@color-grey-dark;
+    font-size:12pt;
+  }
+
+  button {
+    float:left;
+    width:160px;
+    margin:0px 10px 10px 320px;
+  }
+  
+  a {
+    float:left;
+    margin:15px 10px 10px 10px;
+    font-size: 14pt;
+    color: @signin-link-color;
+    &:hover {
+      color: @signin-link-hover-color;
+    }
+  }
+}
 
 ///////////////////////////////////////////////////////////
 //   Other styles have not converted to LESS            //

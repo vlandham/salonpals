@@ -29,13 +29,6 @@
           <ul class="left">
             <li><%= link_to t(:find_job_button), root_path %></li>
             <li><%= link_to t(:post_job_button), new_post_path %></li>
-            <% if user_signed_in? %>
-              <% if current_user.profile %>
-                <li><%= link_to t(:profiles_button), profile_path(current_user.profile) %></li>
-              <% else %>
-                <li><%= link_to t(:profiles_button), new_profile_path %></li>
-              <% end %>
-            <% end %>
           </ul>
           <ul class="right">
           	<% if params["locale"] == "en"%>
@@ -64,12 +57,7 @@
       </div>
       <div id="footer">
         <%= yield :scripts %>
-        <div><%= link_to "About Us", "#", :id => "about" %>
-        | <%= link_to "Terms of Use", "#", :id => "termsofuse" %>
-        | <%= link_to "Privacy Policies", "#", :id => "privacy"%>
-        | <%= link_to "Mobile Site", :mobile => 1 %>
-        | <%= link_to "Contact Us", "#", :id => "contact"%></div>
-        <div id="copyright">Copyright © 2011 SaigaLabs LLC. All Rights Reserved.</div>
+        <div id="copyright">Copyright © 2011 Salonpals. All Rights Reserved.</div>
     </div>
   </div>
 </body>

@@ -1,9 +1,9 @@
-<h1><%=h @user.name %>'s Postings</h1>
-
-<h2>Active Posts</h2>
-
-<%= render :partial => "posts", :locals => {:posts => @active_posts} %>
-
-<h2>Old Posts</h2>
-
-<%= render :partial => "posts", :locals => {:posts => @inactive_posts} %>
+<div class="content-body" align="center">
+  <h2><%=h @user.name %>'s Postings</h2>
+  <div class="rounded-box-with-shadow" id="postings-summary-container">
+    <h3>Active Posts</h3>
+    <%= render :partial => "posts", :locals => {:posts => @active_posts} %>
+    <h3>Old Posts</h3>
+    <%= render :partial => "posts", :locals => {:posts => @inactive_posts} %>
+  </div>
+</div>

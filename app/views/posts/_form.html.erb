@@ -14,7 +14,11 @@
   
   <div class="actions">
   	<%= content_tag :button, :type => :submit, :class => "button-action-1" do -%><%= post.new_record? ? "Preview" : "Update" %><% end -%>
-    <!-- <%= f.button :submit %> -->
+    <% if post.new_record? %>
+       <%= link_to t(:cancel_button), root_path %>
+    <% else %>
+     <%= link_to t(:cancel_button), "javascript: history.go(-1)"%>
+    <% end -%>
   </div>	
 <% end %>
 

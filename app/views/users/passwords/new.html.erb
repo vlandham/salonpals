@@ -1,15 +1,16 @@
-<h2>Forgot your password?</h2>
-
-<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="inputs">
-    <%= f.input :email, :required => true %>
-  </div>
-
-  <div class="actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render :partial => "devise/shared/links" %>
+<div class="content-body" align="center">
+  <h2>Forgot your password?</h2>
+  <p>Please submit your email to recieve instructions on resetting the password.</p>
+  <div class="rounded-box-with-shadow" id="reset-password-container">
+    <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+      <%= f.error_notification %>
+      <div class="inputs">
+        <%= f.input :email, :required => true %>
+      </div>
+      <div class="actions">
+      	<%= content_tag :button, :type => :submit, :class => "button-action-1" do -%>Submit<% end -%>
+      	<%= link_to "or Sign In", new_user_session_path %>
+      </div>
+      <% end %>
+   </div>
+</div>

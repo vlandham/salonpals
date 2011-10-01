@@ -1,34 +1,17 @@
 <div class="content-body" id="signin-body" align="center">
-<h2>Please sign in or join SalonPals!</h2>
-<div class="rounded-box-with-shadow" id="signin-container">
-  <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-    <div class="inputs">
-      <%= f.input :email, :required => false, :autofocus => true %>
-      <label for="user_password">Password <a href="/en/users/password/new">(Forgot password)</a></label>
-      <%= f.input :password, :required => false, :label =>false %>
-    </div>
+  <h2>Please sign in or join SalonPals!</h2>
+  <div class="rounded-box-with-shadow" id="signin-container">
+    <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <div class="inputs">
+        <%= f.input :email, :required => false, :autofocus => true %>
+        <label for="user_password">Password <%= link_to "(Forgot password)", new_password_path(resource_name) %></label>
+        <%= f.input :password, :required => false, :label =>false %>
+      </div>
 
-    <div class="actions">
-     <%= content_tag :button, :type => :submit, :class => "button-action-1" do -%>Sign In<% end -%>	
-      <!--Is there a way to generate this href from rails? -->
-      <a href="/en/users/sign_up">or Join SalonPals</a>
-    </div>
-  <% end %>
+      <div class="actions">
+        <%= content_tag :button, :type => :submit, :class => "button-action-1" do -%>Sign In<% end -%>
+        <%= link_to "or Join SalonPals", new_registration_path(resource_name) %>
+      </div>
+    <% end %>
+  </div>
 </div>
-</div>
-<!--
-  <h2>Sign in</h2>
-  <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-    <div class="inputs">
-      <%= f.input :email, :required => false, :autofocus => true %>
-      <%= f.input :password, :required => false %>
-      <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
-    </div>
-
-    <div class="actions">
-      <%= f.button :submit, "Sign in" %>
-    </div>
-  <% end %>
-</div>
-<%= render :partial => "devise/shared/links" %>
--->

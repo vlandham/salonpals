@@ -158,6 +158,10 @@ select {
   height: 70px;
   border-bottom: 2px solid #e87a27;
 }
+#notifications {
+  text-align: center;
+  font-size: 13pt;
+}
 #logo {
   float: left;
 }
@@ -264,7 +268,7 @@ select {
   margin: 50px 165px 50px 50px;
   padding: 30px 30px 30px 30px;
   height: 250px;
-  width: 450px;
+  width: 433px;
 }
 #signin-container a {
   font-size: 12pt;
@@ -297,7 +301,7 @@ select {
   font-style: italic;
 }
 #signup-container {
-  margin: 20px 20px;
+  margin: 50px 165px 50px 50px;
   padding: 30px;
   height: 680px;
   width: 430px;
@@ -318,8 +322,8 @@ select {
   width: 400px;
 }
 #post_step_container {
-  margin: 20px 20px;
-  padding: 30px;
+  margin: 50px 165px 50px 50px;
+  padding: 30px 30px 30px 30px;
   height: 980px;
   width: 600px;
 }
@@ -339,17 +343,29 @@ select {
 }
 #post_step_container button {
   width: 180px;
-  margin: 25px 10px 10px 210px;
+  margin: 25px 10px 10px 190px;
+}
+#post_step_container a {
+  float: left;
+  margin: 42px 10px 10px 10px;
+  font-size: 14pt;
+  color: #0b486b;
+}
+#post_step_container a:hover {
+  color: #e87a27;
 }
 #account-summary {
-  margin: 20px 20px;
-  padding: 30px;
+  margin: 50px 165px 50px 50px;
+  padding: 30px 30px 30px 30px;
   height: 310px;
   width: 550px;
 }
 #account-summary button {
-  width: 160px;
-  margin: 0px 10px 10px 200px;
+  width: 200px;
+  margin: 0px 10px 10px 10px;
+}
+#account-summary .button-action-1 {
+  margin: 0px 10px 10px 70px;
 }
 .user-details {
   line-height: 17px;
@@ -367,8 +383,8 @@ select {
   font-weight: bold;
 }
 #edit-account {
-  margin: 20px 20px;
-  padding: 30px;
+  margin: 50px 165px 50px 50px;
+  padding: 30px 30px 30px 30px;
   height: 550px;
   width: 550px;
 }
@@ -395,6 +411,70 @@ select {
 #edit-account #user_zip_code {
   float: left;
   width: 120px;
+}
+#reset-password-container {
+  margin: 50px 165px 50px 50px;
+  padding: 30px 30px 30px 30px;
+  height: 150px;
+  width: 433px;
+}
+#reset-password-container button {
+  float: left;
+  width: 160px;
+  margin: 25px 10px 10px 115px;
+}
+#reset-password-container a {
+  float: left;
+  margin: 42px 10px 10px 10px;
+  font-size: 14pt;
+  color: #0b486b;
+}
+#reset-password-container a:hover {
+  color: #e87a27;
+}
+#postings-summary-container {
+  margin: 50px 165px 50px 50px;
+  padding: 30px 30px 30px 30px;
+  width: 800px;
+}
+#postings-summary-container button {
+  float: left;
+  width: 160px;
+  margin: 25px 10px 10px 115px;
+}
+#postings-summary-container a {
+  font-size: 14pt;
+  color: #0b486b;
+}
+#postings-summary-container a:hover {
+  color: #e87a27;
+}
+#postings-summary-container p, #postings-summary-container .when {
+  color: #666764;
+  font-size: 12pt;
+}
+#post-detail-container {
+  margin: 50px 165px 50px 50px;
+  padding: 30px 30px 70px 30px;
+  width: 800px;
+}
+#post-detail-container p, #post-detail-container .post-description {
+  color: #666764;
+  font-size: 12pt;
+}
+#post-detail-container button {
+  float: left;
+  width: 160px;
+  margin: 0px 10px 10px 320px;
+}
+#post-detail-container a {
+  float: left;
+  margin: 15px 10px 10px 10px;
+  font-size: 14pt;
+  color: #0b486b;
+}
+#post-detail-container a:hover {
+  color: #e87a27;
 }
 table.postlist {
   font-size: 14px;
