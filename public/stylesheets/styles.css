@@ -252,6 +252,9 @@ select {
   cursor: auto;
   border: 1px solid #999999;
 }
+.watermark_container {
+  float: left;
+}
 #employer-box, #profile-box {
   float: left;
   width: 380px;
