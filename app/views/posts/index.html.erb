@@ -4,6 +4,16 @@
     <h2><%= t :post_index_header_2%></h2>
     <%= render :partial => "search" %>
   </div>
+  
+  <%- if @posts and !@posts.empty? -%>
+  <div class="rounded-box-with-shadow" id="search-results">
+    <% @posts.each do |post| %>
+    <div class="search-post" id="search-post-<%= post.id %>">
+      <p><%= link_to post.title, post_path(post) %></p>
+    </div>
+    <% end %>
+  </div>
+  <%- end -%>
 
   <!-- TODO: put strings in the resource files -->
   <div class="rounded-box-with-shadow" id="employer-box">
