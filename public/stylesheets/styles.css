@@ -267,6 +267,12 @@ select {
 #profile-box {
   float: right;
 }
+#search_result {
+  text-align: center;
+}
+#search_result h3 {
+  text-shadow: 0px 1px 1px;
+}
 #signin-container {
   margin: 50px 165px 50px 50px;
   padding: 30px 30px 30px 30px;
