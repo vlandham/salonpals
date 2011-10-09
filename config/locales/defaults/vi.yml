@@ -232,6 +232,7 @@ vi:
       long: "%d %B, %Y %H:%M"
       month_and_year: "%b %Y"
       day_month: "%d %B"
+      day_month_year: "%d %B, %Y"
 
     am: "sáng"
     pm: "chiều"

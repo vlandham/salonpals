@@ -66,6 +66,7 @@ en:
       long: "%B %d, %Y %H:%M"
       month_and_year: "%b %Y"
       day_month: "%d %B"
+      day_month_year: "%d %B, %Y"
 
     am: "am"
     pm: "pm"

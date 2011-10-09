@@ -2,11 +2,11 @@
   <h2><%=h post.title %></h2>
   <div class="rounded-box-with-shadow" id="post-detail-container">
     <% if post.latitude and post.longitude %>
-      <br/><br/><br/>
       <div id="map-box">
       <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{post.latitude}%2C#{post.longitude}" %>
-      <br/><br/><br/>
+      <br/><br/>
       <div id="post-address">
+      	<%=h post.business_name %><br/>
         <%=h post.address_street %><br/>
         <%=h post.address_city %>, <%=h post.address_state %> <%=h post.address_zip %>
       </div>

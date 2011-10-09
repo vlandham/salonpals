@@ -301,12 +301,25 @@ select {
 
 #search-results {
   a {
-    margin:10px 10px 10px 10px;
+    margin:10px 10px 10px 0px;
     font-size: 14pt;
     color: @signin-link-color;
     &:hover {
       color: @signin-link-hover-color;
     }
+  }
+  
+  .search-post {
+    margin:10px 5px 20px 5px;
+  }
+  
+  p {
+    margin:10px 0px 0px 0px;
+    color:@search-result-summary-color;
+  }
+  
+  .when {
+    float:right;
   }
 }
 
@@ -573,7 +586,7 @@ select {
 
 #post-detail-container {
   margin: 50px 165px 50px 50px;
-  padding:20px 20px 20px 20px;
+  padding:20px 20px 70px 20px;
   width: 800px;
 
   #map-box {
@@ -587,19 +600,19 @@ select {
     color:black;
     font-size:12pt;
   }
-  
+
   #post-description {
-    margin: 50px 10px 20px 10px;
+    margin: 30px 10px 20px 10px;
   }
   
   button {
     float:left;
     width:160px;
-    margin:0px 10px 10px 320px;
+    margin:0px 0px 0px 320px;
   }
   
   a {
-    margin:15px 10px 10px 10px;
+    margin:15px 10px 10px 20px;
     font-size: 14pt;
     color: @signin-link-color;
     &:hover {
@@ -614,7 +627,6 @@ select {
   #back_link_2 {
     text-align:center;
   }
-  
 }
 
 ///////////////////////////////////////////////////////////

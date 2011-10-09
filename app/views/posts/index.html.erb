@@ -37,7 +37,10 @@
             <tr>
               <td>
                 <div class="search-post" id="search-post-<%= post.id %>">
-                  <%= link_to post.title, post_path(post) %>
+                  <%= link_to post.title, post_path(post) %> 
+                   <p><%= post.business_name %> - <%= post.address_city %>, <%= post.address_state %>
+                   	<span class="when"><%= l post.created_at, :format => :day_month_year %></span>
+                   </p>
                 </div>
               </td>
             </tr>
@@ -45,7 +48,7 @@
         </table>
        </div>
      <%- else -%>
-       <div id="search_result"><h3>No Posting Found</h3></div>
+       <div id="search_result"><h3>Your search returned no results.</h3></div>
      <%- end -%>
   <%- end -%>
 </div>

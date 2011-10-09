@@ -242,7 +242,7 @@ select {
   font-weight: 900;
   height: 50px;
   width: 530px;
-  color: #cacaca;
+  color: #666764;
   background: #fff;
   margin: 5px 0px;
   -webkit-box-sizing: border-box;
@@ -274,12 +274,22 @@ select {
   text-shadow: 0px 1px 1px;
 }
 #search-results a {
-  margin: 10px 10px 10px 10px;
+  margin: 10px 10px 10px 0px;
   font-size: 14pt;
   color: #0b486b;
 }
 #search-results a:hover {
   color: #e87a27;
+}
+#search-results .search-post {
+  margin: 10px 5px 20px 5px;
+}
+#search-results p {
+  margin: 10px 0px 0px 0px;
+  color: black;
+}
+#search-results .when {
+  float: right;
 }
 #signin-container {
   margin: 50px 165px 50px 50px;
@@ -472,7 +482,7 @@ select {
 }
 #post-detail-container {
   margin: 50px 165px 50px 50px;
-  padding: 20px 20px 20px 20px;
+  padding: 20px 20px 70px 20px;
   width: 800px;
 }
 #post-detail-container #map-box {
@@ -490,15 +500,15 @@ select {
   font-size: 12pt;
 }
 #post-detail-container #post-description {
-  margin: 50px 10px 20px 10px;
+  margin: 30px 10px 20px 10px;
 }
 #post-detail-container button {
   float: left;
   width: 160px;
-  margin: 0px 10px 10px 320px;
+  margin: 0px 0px 0px 320px;
 }
 #post-detail-container a {
-  margin: 15px 10px 10px 10px;
+  margin: 15px 10px 10px 20px;
   font-size: 14pt;
   color: #0b486b;
 }
