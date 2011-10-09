@@ -32,12 +32,20 @@
     <%- if @posts and !@posts.empty? -%>
       <div id="search_result"><h3>Search Results</h3></div>
       <div class="rounded-box-with-shadow" id="search-results">
-        <% @posts.each do |post| %>
-          <div class="search-post" id="search-post-<%= post.id %>">
-          <p><%= link_to post.title, post_path(post) %></p>
-         </div>
-        <% end %>
+      	<table class="postlist">
+          <% @posts.each do |post| %>
+            <tr>
+              <td>
+                <div class="search-post" id="search-post-<%= post.id %>">
+                  <%= link_to post.title, post_path(post) %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </table>
        </div>
-      <%- end -%>
+     <%- else -%>
+       <div id="search_result"><h3>No Posting Found</h3></div>
+     <%- end -%>
   <%- end -%>
 </div>

@@ -1,23 +1,28 @@
 <div class="content-body" align="center">
   <h2><%=h post.title %></h2>
   <div class="rounded-box-with-shadow" id="post-detail-container">
-    <div class="post-description"><%=h post.description.html_safe %></div>
-
     <% if post.latitude and post.longitude %>
       <br/><br/><br/>
+      <div id="map-box">
       <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{post.latitude}%2C#{post.longitude}" %>
       <br/><br/><br/>
       <div id="post-address">
-        <p><%=h post.address_street %></p>
-        <p><%=h post.address_city %>, <%=h post.address_state %> <%=h post.address_zip %></p>
+        <%=h post.address_street %><br/>
+        <%=h post.address_city %>, <%=h post.address_state %> <%=h post.address_zip %>
       </div>
       <br />
+      </div>
     <% end %>
+ 
+    <div id="post-description"><%=h post.description.html_safe %></div><br/>
+ 
     <% if user_signed_in? and current_user.owns_post?(@post) %>
       <form method="link" action="<%=edit_post_path(@post) %>">
         <%= content_tag :button, :type => :submit, :class => "button-action-1" do -%>Edit<% end -%>
       </form>
+      <%= link_to t(:back_button), :back, :id => "back_link_1" %>
+    <% else %>
+      <%= link_to t(:back_button), :back, :id => "back_link_2" %>
     <% end %>
-    <%= link_to "Back", :back %>
   </div>
 </div>
