@@ -1,35 +1,35 @@
 <div class="content-body" align="center">
-  <h2><%=h  @user.first_name %>'s account information</h2>
+  <h2><%=t :account_info%></h2>
   <div class="rounded-box-with-shadow" id="account-summary">
     <table class="user-details">
       <tr>
-        <td class="detail-attribute">Name</td>
+        <td class="detail-attribute"><%=t :account_name_label%></td>
         <td class="detail-value"><%=h @user.name %></td>
       </tr>
       <tr>
-        <td class="detail-attribute">Email</td>
+        <td class="detail-attribute"><%=t :account_email_label%></td>
         <td class="detail-value"><%=h @user.email %></td>
       </tr>  
       <tr>
-        <td class="detail-attribute">Zip Code</td>
+        <td class="detail-attribute"><%=t :account_zip_code_label%></td>
         <td class="detail-value"><%=h @user.zip_code %></td>    
       </tr>
       <tr>
-        <td class="detail-attribute">Member For</td>
+        <td class="detail-attribute"><%=t :account_member_for_label%></td>
         <td class="detail-value"><%=h time_ago_in_words(@user.created_at) %></td>    
       </tr>
       <tr>
-        <td class="detail-attribute">Preferred Language</td>
+        <td class="detail-attribute"><%=t :account_pref_language_label%></td>
         <td class="detail-value"><%=h language_name_for(@user.language) %></td>    
       </tr>    
     </table>
     <form method="link" action="<%=edit_user_path(@user)%>">
-      <%= content_tag :button, :type => :submit, :class => "button-action-1" do -%>Edit Account<% end -%>
+      <%= content_tag :button, :type => :submit, :class => "button-action-1" do -%><%=t :account_edit_button%><% end -%>
     </form>
 
     <% if @user.owns_posts? %>
       <form method="link" action="<%=user_posts_path()%>">
-        <%= content_tag :button, :type => :submit, :class => "button-action-2" do -%>Manage Posts<% end -%>
+        <%= content_tag :button, :type => :submit, :class => "button-action-2" do -%><%=t :account_manage_posts_button%><% end -%>
       </form>
     <% end %>
   </div>

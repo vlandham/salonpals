@@ -41,8 +41,8 @@
             <li><%= link_to t(:account_button), user_path(current_user) %></li>
             <li><%= link_to t(:sign_out_button), destroy_user_session_path, :method => :delete %></li>          
             <% else %>
-            <li><%= link_to "Sign In", new_user_session_path %></li>
-            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+            <li><%= link_to t(:sign_in_button), new_user_session_path %></li>
+            <li><%= link_to t(:sign_up_button), new_user_registration_path %></li>
             <% end %>
           </ul>
         </div>

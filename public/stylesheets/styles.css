@@ -255,18 +255,32 @@ select {
 .watermark_container {
   float: left;
 }
-#employer-box, #profile-box {
+#employer-box {
   float: left;
+  width: 860px;
+  margin: 20px 0px 0px 0px;
+  padding: 20px;
+}
+#employer-box button {
+  margin: 0 0 0 280px;
+  width: 300px;
+}
+/*
+#employer-box, #profile-box {
+  float:left;
   width: 380px;
   height: 320px;
   padding: 20px;
+
+  button {
+    width:300px;
+  }
 }
-#employer-box button, #profile-box button {
-  width: 300px;
-}
+
 #profile-box {
-  float: right;
+  float:right;
 }
+*/
 #search_result {
   text-align: center;
 }

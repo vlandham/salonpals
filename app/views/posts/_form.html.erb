@@ -13,7 +13,7 @@
   </div>
   
   <div class="actions">
-  	<%= content_tag :button, :type => :submit, :class => "button-action-1" do -%><%= post.new_record? ? "Preview" : "Update" %><% end -%>
+  	<%= content_tag :button, :type => :submit, :class => "button-action-1" do -%><%= post.new_record? ? t(:preview_button) : t(:update_button) %><% end -%>
     <% if post.new_record? %>
        <%= link_to t(:cancel_button), root_path %>
     <% else %>

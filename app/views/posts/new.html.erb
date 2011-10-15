@@ -1,6 +1,6 @@
 <div class="content-body" align="center">
-  <h2>Create a FREE posting</h2>
-  <p>Your new posting will be posted for 30 days starting today.</p>
+  <h2><%=t :posting_header%></h2>
+  <p><%=t :posting_desc%></p>
 <div id="post_step_container" class="rounded-box-with-shadow">
   <%= render :partial => "#{@post.current_step}_step", :locals => {:post => @post} %>
 </div>

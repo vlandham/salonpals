@@ -1,5 +1,5 @@
 <div class="content-body" align="center">
-  <h2>Create a FREE account with SalonPals</h2>
+  <h2><%=t :sign_up_header %></h2>
   <div class="rounded-box-with-shadow" id="signup-container">
     <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
@@ -9,13 +9,13 @@
         <%= f.input :last_name %>
         <%= f.input :email %>
         <%= f.input :password %>
-        <%= f.input :password_confirmation, :label => "Retype Password", :required => true %>
+        <%= f.input :password_confirmation, :label => t(:sign_up_retype_password_label), :required => true %>
         <%= f.input :zip_code, :input_html => { :size => 10, :maxLength => 10 }, :label_html => { :id =>"zip_code_label"} %>
-        <%= f.input :language, :label => "Your Preferred Language", :label_html => { :id =>"language_label"}, :collection => LANGUAGES.invert, :include_blank => false %>
+        <%= f.input :language, :label => t(:sign_up_preferred_language_label), :label_html => { :id =>"language_label"}, :collection => LANGUAGES.invert, :include_blank => false %>
       </div>
 
       <div class="actions">
-  	    <%= content_tag :button, :type => :submit, :class => "button-action-1" do -%>Sign up<% end -%>
+  	    <%= content_tag :button, :type => :submit, :class => "button-action-1" do -%><%=t :sign_up_button%><% end -%>
       </div>
     <% end %>
   </div>

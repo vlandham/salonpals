@@ -1,36 +1,22 @@
 <div id="post-main-content">
   <div class="rounded-box-with-shadow" id="search-container">
-    <h1><%= t :post_index_header %></h1>
-    <h2><%= t :post_index_header_2%></h2>
+    <h1><%= t :search_box_header_1 %></h1>
+    <h2><%= t :search_box_header_2%></h2>
     <%= render :partial => "search" %>
   </div>
 
   <%- if request.fullpath == root_path or request.fullpath == "/" %>
-    <!-- TODO: put strings in the resource files -->
     <div class="rounded-box-with-shadow" id="employer-box">
-      <h3>Salon Employers</h3>
-      <p>Post job openings, booth rentals, and salon for sale from the fastest growing salon professional network site on the web.</p>
-      <p>Every month tens of thousands of salon professionals visit SalonPals to network and looking for new opportunities.
-  	   For an afforable monthly fees, you can advertise your open positions, booth rentals, or salon for sale to these
-  	   professionals and gain access to profiles of those have registered with us.</p>
+      <h3><%=t :salon_employer_header %></h3>
+      <p><%=t :salon_employer_desc_1 %></p>
+      <p><%=t :salon_employer_desc_2 %></p>
       <form method="link" action="<%=new_post_path%>">
-        <%= content_tag :button, :type => :submit, :class => "button-action-1" do -%>Create Post<% end -%>
-      </form>
-    </div>
-
-    <div class="rounded-box-with-shadow" id="profile-box">
-      <h3>Salon Professionals</h3>
-      <p>Create a FREE profile on the fastest growing salon professional network site on the web.</p>
-      <p>Every month thousands of salon employers visit SalonPals to network and recruiting salon professionals for new opportunities.
-  	   By registering and creating a profile with SalonPals, you can advertise your skill sets open positions to these employers. You
-  	   can also connecting with other fellow salon professionals once registered.</p>
-      <form method="link" action="<%=new_user_registration_path%>">
-        <%= content_tag :button, :type => :submit, :class => "button-action-2" do -%>Create Account<% end -%>
+        <%= content_tag :button, :type => :submit, :class => "button-action-1" do -%><%=t :create_free_post_button %><% end -%>
       </form>
     </div>
   <%- else -%>
     <%- if @posts and !@posts.empty? -%>
-      <div id="search_result"><h3>Search Results</h3></div>
+      <div id="search_result"><h3><%=t :search_results_header %></h3></div>
       <div class="rounded-box-with-shadow" id="search-results">
       	<table class="postlist">
           <% @posts.each do |post| %>
@@ -48,7 +34,7 @@
         </table>
        </div>
      <%- else -%>
-       <div id="search_result"><h3>Your search returned no results.</h3></div>
+       <div id="search_result"><h3><%=t :search_results_not_found %></h3></div>
      <%- end -%>
   <%- end -%>
 </div>

@@ -1,16 +1,16 @@
 <div class="content-body" id="signin-body" align="center">
-  <h2>Please sign in or join SalonPals!</h2>
+  <h2><%=t :sign_in_header %></h2>
   <div class="rounded-box-with-shadow" id="signin-container">
     <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
       <div class="inputs">
         <%= f.input :email, :required => false, :autofocus => true %>
-        <label for="user_password">Password <%= link_to "(Forgot password)", new_password_path(resource_name) %></label>
+        <label for="user_password"><%=t :sign_in_password %> <%= link_to t(:sign_in_forgot_password), new_password_path(resource_name) %></label>
         <%= f.input :password, :required => false, :label =>false %>
       </div>
 
       <div class="actions">
-        <%= content_tag :button, :type => :submit, :class => "button-action-1" do -%>Sign In<% end -%>
-        <%= link_to "or Join SalonPals", new_registration_path(resource_name) %>
+        <%= content_tag :button, :type => :submit, :class => "button-action-1" do -%><%=t :sign_in_button%><% end -%>
+        <%= link_to t(:sign_in_join), new_registration_path(resource_name) %>
       </div>
     <% end %>
   </div>
