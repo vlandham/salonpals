@@ -18,7 +18,7 @@
  
     <% if user_signed_in? and current_user.owns_post?(@post) %>
       <form method="link" action="<%=edit_post_path(@post) %>">
-        <%= content_tag :button, :type => :submit, :class => "button-action-1" do -%>Edit<% end -%>
+        <%= content_tag :button, :type => :submit, :class => "button-action-1" do -%><%=t :edit_button%><% end -%>
       </form>
       <%= link_to t(:back_button), :back, :id => "back_link_1" %>
     <% else %>

@@ -14,7 +14,6 @@ en:
   job_posting_option: Job Posting
   both_rental_option: Booth Rentals
   shop_sale_option: Shops For Sale
-  search_input_watermark: 
   search_button: Search
 
   #employer box
@@ -35,10 +34,14 @@ en:
   sign_in_forgot_password: (Forgot password)
   sign_in_join: or Join SalonPals
   
+  #sign in forgot password
+  forgot_password_header: Forgot your password?
+  forgot_password_desc: Please submit your email to recieve instructions on resetting the password.
+  forgot_password_sign_in_button: or Sign In
+  
   #sign up
   sign_up_header: Create a FREE account with SalonPals
-  sign_up_retype_password_label: Retype Password
-  sign_up_preferred_language_label: Your Preferred Language
+  sign_up_retype_password_label: Retype password
 
   #posting
   posting_header: Create a FREE posting
@@ -54,8 +57,20 @@ en:
   account_edit_button: Edit Account
   account_manage_posts_button: Manage Posts
   
+  #edit account
+  edit_account_header: Edit your account
+  
+  #posting summary
+  posting_summary_header: s Postings
+  posting_summary_active_posts_label: Active Posts
+  posting_summary_ols_posts_label: Old Posts
+  
+  #common
+  preferred_language_label: Your preferred language
+  edit_button: Edit
   preview_button: Preview
   update_button: Update
+  submit_button: Submit
   cancel_button: Cancel
   back_button: Back
   

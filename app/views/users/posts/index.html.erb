@@ -1,9 +1,13 @@
 <div class="content-body" align="center">
+  <% if params["locale"] == "en" %>
+  <h2><%=h @user.name %>'<%=t :posting_summary_header%></h2>
+  <% else %>
   <h2><%=h @user.name %>'s Postings</h2>
+  <% end %>
   <div class="rounded-box-with-shadow" id="postings-summary-container">
-    <h3>Active Posts</h3>
+    <h3><%=t :posting_summary_active_posts_label%></h3>
     <%= render :partial => "posts", :locals => {:posts => @active_posts} %>
-    <h3>Old Posts</h3>
+    <h3><%=t :posting_summary_ols_posts_label%></h3>
     <%= render :partial => "posts", :locals => {:posts => @inactive_posts} %>
   </div>
 </div>
